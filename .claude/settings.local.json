@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp ElegantFin-theme-v26.04.07.css ElegantFin-theme-nightly.css)",
+      "Bash(cp ElegantFin-theme-v26.04.07.css ElegantFin-jellyfin-theme-build-latest-minified.css)"
+    ]
+  }
+}

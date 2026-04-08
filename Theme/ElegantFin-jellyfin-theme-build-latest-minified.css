@@ -289,6 +289,18 @@ body {
     border-color: white !important;
 }
 
+.card:focus-visible .cardBox {
+    outline: 0.12em solid var(--uiAccentColor);
+    outline-offset: 0.1em;
+    box-shadow: 0 0 0.8em var(--activeColorAlpha);
+}
+
+.layout-tv .card:focus .cardBox {
+    outline: 0.15em solid var(--uiAccentColor);
+    outline-offset: 0.15em;
+    box-shadow: 0 0 1em var(--activeColorAlpha);
+}
+
 .mdl-radio__focus-circle,
 .mdl-radio.show-focus .mdl-radio__button:focus + .mdl-radio__circles .mdl-radio__outer-circle,
 .mdl-radio.show-focus .mdl-radio__button:focus + .mdl-radio__circles .mdl-radio__inner-circle {
@@ -407,20 +419,25 @@ body {
 }
 
 .card-hoverable:hover .cardImageContainer {
-    transform: scale(1.025);
+    transform: scale(1.05);
 }
 
 .card-hoverable .itemSelectionPanel {
-    transition: transform 0.125s;
+    transition: transform var(--transitionFast);
 }
 
 .card-hoverable:hover .cardScalable,
 .card-hoverable:hover .itemSelectionPanel {
-    transform: scale(1.02);
+    transform: scale(1.03);
+}
+
+.card-hoverable:hover .cardBox {
+    z-index: 2;
+    box-shadow: 0 0.5em 1.5em rgba(0, 0, 0, 0.5);
 }
 
 .card-hoverable .cardScalable:active {
-    transition: transform 0.075s;
+    transition: transform var(--transitionFast);
     transform: scale(1);
 }
 
@@ -429,13 +446,13 @@ body {
 }
 
 .cardOverlayContainer {
-    transition: 0.5s;
+    transition: var(--transitionSlow);
     background: rgba(255, 255, 255, 0.05);
 }
 
 .cardOverlayContainer:after {
     content: var(--cardHoverEffect);
-    transition: 0.5s;
+    transition: var(--transitionSlow);
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1071,6 +1088,8 @@ body {
 
 .pageTitle {
     height: 1.5em;
+    font-weight: var(--fontWeightBold);
+    letter-spacing: 0.02em;
 }
 
 .headerLeft .pageTitle {
@@ -1119,6 +1138,8 @@ body {
 .layout-desktop .sectionTitle,
 .layout-tv .sectionTitle {
     font-size: 1.5rem !important;
+    font-weight: var(--fontWeightBold);
+    letter-spacing: 0.02em;
 }
 
 .emby-scrollbuttons,
@@ -1249,6 +1270,18 @@ body {
 
 .layout-desktop .itemBackdrop {
     height: calc(100vh - 27vh - var(--primaryItemPageNegativeSpace));
+}
+
+.layout-desktop .itemBackdrop::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--itemBackdropSideGradient);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .layout-mobile .itemBackdrop {
@@ -1599,6 +1632,28 @@ html,
     }
 }
 
+@keyframes animFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes animSlideInFromRight {
+    from {
+        transform: translateX(2em);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .backdropImageFadeIn {
     transform-origin: bottom center;
     animation: animScaleUp 0.5s ease-out forwards;
@@ -1619,7 +1674,7 @@ html,
     text-align: center;
     align-self: center;
     font-weight: 600;
-    transition: transform 0.125s;
+    transition: transform var(--transitionFast);
 }
 
 .pastLyric,
@@ -1653,9 +1708,8 @@ html,
 }
 
 .itemProgressBar:not(.backgroundProgress):not(.playbackProgress):not(.transcodingProgress) {
-    backdrop-filter: var(--blurLarge);
-    background-color: var(--osdSeekBarBufferedColorAlpha) !important;
-    height: 0.35em;
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    height: var(--progressBarHeight);
     overflow: hidden;
     border-radius: var(--largeRadius);
 }
@@ -1672,7 +1726,8 @@ html,
 
 .itemProgressBarForeground {
     border-radius: 0 var(--largeRadius) var(--largeRadius) 0;
-    background-color: var(--dimTextColor);
+    background-color: var(--progressBarColor);
+    box-shadow: 0 0 0.4em var(--progressBarColor);
 }
 
 .backgroundProgress > div,

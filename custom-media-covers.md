@@ -21,7 +21,7 @@ Un add-on Jellyfin qui vous permet de personnaliser les couvertures de vos bibli
 ![image](https://github.com/user-attachments/assets/5284af32-3b2e-4150-938c-f6d0fdfddf06)
 
 ```
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 ```
 
 </details>
@@ -39,7 +39,7 @@ Un add-on Jellyfin qui vous permet de personnaliser les couvertures de vos bibli
 ![Screenshot 2025-01-19 192133](https://github.com/user-attachments/assets/daaefe74-d3a9-4bb4-8389-9605a4364372)
 
 ```
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 
 :root{
     --colorOverlayMoviesCover: transparent;
@@ -74,7 +74,7 @@ Un add-on Jellyfin qui vous permet de personnaliser les couvertures de vos bibli
 ![Screenshot 2025-01-19 192505](https://github.com/user-attachments/assets/256718f2-67ca-4fbd-8407-e41803380174)
 
 ```
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 
 :root{
     --colorOverlayMoviesCover: transparent;
@@ -112,7 +112,7 @@ Un add-on Jellyfin qui vous permet de personnaliser les couvertures de vos bibli
 ![image](https://github.com/user-attachments/assets/6975a5ef-4824-4807-9afa-434fc3ebaf6f)
 
 ```
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 
 :root{
     --colorOverlayMoviesCover: rgb(193, 103, 104);
@@ -151,7 +151,7 @@ Un add-on Jellyfin qui vous permet de personnaliser les couvertures de vos bibli
 -   Collez le code suivant à la fin du champ CSS personnalisé :
 
 ```
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 ```
 
 <hr>
@@ -215,7 +215,7 @@ Supposons que vous souhaitez modifier la couverture de la TV en direct. Vous dev
 
 ```
 
-@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
+@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/custom-media-covers-latest-min.css");
 
 :root{
 --colorOverlayLivetvCover: rgb(39, 68, 185);

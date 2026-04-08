@@ -103,7 +103,7 @@ https://github.com/user-attachments/assets/bb7f3174-b703-4c98-a23c-e6bb4abba390
 
 <b>Collez le code suivant dans le champ CSS personnalisé :</b>
 
-    @import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/ElegantFin-jellyfin-theme-build-latest-minified.css");
+    @import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/ElegantFin-jellyfin-theme-build-latest-minified.css");
 
 <details>
   <summary><i>Étapes détaillées pour l'installation côté serveur</i></summary>
@@ -226,7 +226,7 @@ https://github.com/user-attachments/assets/ac22440d-39d7-48d6-a8da-3b7777372ffd
 -   ElegantFin ne prend en charge aucun plugin par défaut. Pour ajouter le support externe de [ce plugin](https://github.com/IAmParadox27/jellyfin-plugin-media-bar), copiez et collez le code suivant à la fin du champ CSS personnalisé, cliquez sur Enregistrer puis rafraîchissez votre application/page web.
 
 ```
-	@import url("https://cdn.jsdelivr.net/gh/lscambo13/ElegantFin@main/Theme/assets/add-ons/media-bar-plugin-support-latest-min.css");
+	@import url("https://cdn.jsdelivr.net/gh/peterdu1109/ElegantFin@main/Theme/assets/add-ons/media-bar-plugin-support-latest-min.css");
 ```
 
 -   Pour annuler ce changement, supprimez simplement ce bloc de code.

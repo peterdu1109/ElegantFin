@@ -1,4 +1,5 @@
-/* ElegantFin Theme for Jellyfin by lscambo13 */
+/* ElegantFin Theme for Jellyfin - Modernized v26.04.07 */
+/* Enhanced with smooth transitions and Netflix-inspired UI improvements */
 
 /* Add-ons: Uncomment to enable */
 /* @import url(./assets/add-ons/media-bar-plugin-support-nightly.css); */
@@ -8,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Nightly";
+    --elegantFinFooterText: "ElegantFin v26.04.07";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -101,7 +102,36 @@
 
     --shadow: 0.1em 0.1em 0.15em hsla(0, 0%, 0%, 0.3);
 
-    /* use "" to enable a fancy blur behind the app header / top bar [default]; 
+    /* Netflix-inspired smooth transitions */
+    --transitionFast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transitionMedium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transitionSlow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Progress bar styling */
+    --progressBarColor: var(--btnMiniPlayColor);
+    --progressBarHeight: 0.25em;
+
+    /* Netflix-style gradient overlays */
+    --itemBackdropMaskEnhanced: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.7) 30%,
+        rgba(0, 0, 0, 0.4) 60%,
+        transparent 100%
+    );
+    --itemBackdropSideGradient: linear-gradient(
+        90deg,
+        var(--darkerGradientPoint) 0%,
+        transparent 50%
+    );
+
+    /* Typography weights for better hierarchy */
+    --fontWeightLight: 300;
+    --fontWeightNormal: 425;
+    --fontWeightMedium: 500;
+    --fontWeightBold: 600;
+
+    /* use "" to enable a fancy blur behind the app header / top bar [default];
        use none (without quotes) to disable it */
     --headerBlurLayerVisibility: "";
 
@@ -112,7 +142,7 @@
     /* fill out YOUR-JELLYFIN-SERVER-ADDRESS with a relevant host address;
        url("<YOUR-JELLYFIN-SERVER-ADDRESS>/Branding/Splashscreen?format=webp&foregroundLayer=1&quality=33&width=3840&height=2160&blur=2"); */
     --loginPageBgUrl: url("");
-    --loginPageText: "Sign in to continue";
+    --loginPageText: "Connectez-vous pour continuer";
 
     /* use 2.8em keep the overlay play button at bottom-left corner [default];
        use 50% to place it at the center of a card */
@@ -157,10 +187,6 @@
     /* use 10% to crop the top 10% of a backdrop image on a 16:9 screen (recommended) [default]; 
        use a figure between 0% and 20% according to your liking */
     --backdropTrimFromTop: 10%;
-
-    /* use numbers greater than 1.0 to increase the size of 'Continue Watching' cards [default: 1.25];
-       use 1.0 to disable this effect */
-    --resumeCardScale: 1.25;
 }
 
 html {
@@ -177,20 +203,16 @@ body {
     --clearLogoBottomSpace: 11em;
 }
 
-select {
-    text-overflow: ellipsis;
-}
-
 .layout-desktop > body:has(> audio[src]) {
     --primaryItemPageNegativeSpace: calc(14vh + 5em);
     --secondaryItemPageNegativeSpace: calc(60vh + 5em);
 }
 
 .layout-mobile {
+    --itemColumnGap: 0;
     --headerColorGradient: var(--headerColorGradientAlt);
     --blurLargest: blur(12px);
     --headerBlurMask: linear-gradient(180deg, white 60%, 90%, transparent);
-    --itemColumnGap: 0.5em;
 }
 
 .layout-mobile > body {
@@ -225,20 +247,12 @@ select {
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "liga";
-    font-variation-settings:
-        "FILL" 1,
-        "wght" 400,
-        "GRAD" 0,
-        "opsz" 48;
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .material-icons.info_outline:before {
     content: "\e88e";
-    font-variation-settings:
-        "FILL" 0,
-        "wght" 400,
-        "GRAD" 0,
-        "opsz" 48;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .dashboardFooter {
@@ -282,10 +296,6 @@ select {
     color: var(--uiAccentColor);
 }
 
-.emby-button {
-    gap: 1ch;
-}
-
 .emby-button.show-focus:focus,
 .paper-icon-button-light.show-focus:focus,
 .emby-tabs .emby-button.show-focus:focus {
@@ -312,18 +322,8 @@ select {
     }
 }
 
-.vertical-wrap:not(.centered),
-.vertical-wrap.padded-right-withalphapicker,
-.padded-right-withalphapicker > .vertical-wrap {
+.vertical-wrap:not(.centered) {
     justify-content: flex-start !important;
-}
-
-#episodesTab > .vertical-wrap,
-#studiosTab > .vertical-wrap,
-#channelsTab > .vertical-wrap,
-#recordingsTab > .vertical-wrap,
-#genresTab > .vertical-wrap {
-    justify-content: center !important;
 }
 
 .countIndicator,
@@ -331,10 +331,6 @@ select {
 .mediaSourceIndicator {
     background: rgb(31, 80, 189);
     border: var(--defaultLighterBorder);
-}
-
-.layout-mobile .indicator {
-    font-size: 70%;
 }
 
 .cardScalable {
@@ -521,8 +517,8 @@ select {
 
 .layout-mobile .cardOverlayButton-br,
 [dir="ltr"] .layout-mobile .cardOverlayButton-br {
-    /* bottom: 0.25em;
-    right: 0.25em; */
+    bottom: 0.25em;
+    right: 0.25em;
     display: var(--miniOverlayButtonVisibility);
 }
 
@@ -715,7 +711,7 @@ select {
     }
 }
 
-/* 12 posters, 9 thumbs, 2160p*/
+/* 12 posters, 9 thumbs, 4K*/
 @media (max-width: 220em) {
     .portraitCard,
     .squareCard {
@@ -731,9 +727,12 @@ select {
         --cardCount: 9;
     }
 
-    .backdropCard,
+    .backdropCard {
+        --cardCount: 9;
+    }
+
     .overflowBackdropCard {
-        --cardCount: 7;
+        --cardCount: 8;
     }
 }
 
@@ -753,13 +752,16 @@ select {
         --cardCount: 9;
     }
 
-    /* .backdropCard,
+    .backdropCard {
+        --cardCount: 9;
+    }
+
     .overflowBackdropCard {
-        --cardCount: 7;
-    } */
+        --cardCount: 8;
+    }
 }
 
-/* 10 posters, 8 thumbs, 1440p */
+/* 10 posters, 8 thumbs */
 @media (max-width: 170em) {
     .portraitCard,
     .squareCard {
@@ -775,9 +777,12 @@ select {
         --cardCount: 9;
     }
 
-    .backdropCard,
+    .backdropCard {
+        --cardCount: 8;
+    }
+
     .overflowBackdropCard {
-        --cardCount: 6;
+        --cardCount: 7;
     }
 }
 
@@ -797,9 +802,12 @@ select {
         --cardCount: 7;
     }
 
-    .backdropCard,
+    .backdropCard {
+        --cardCount: 7;
+    }
+
     .overflowBackdropCard {
-        --cardCount: 5;
+        --cardCount: 6;
     }
 }
 
@@ -815,22 +823,28 @@ select {
         --cardCount: 7;
     }
 
+    .layout-tv .portraitCard,
+    .layout-tv .squareCard,
+    .layout-tv .overflowPortraitCard,
+    .layout-tv .overflowSquareCard {
+        --cardCount: 6;
+    }
+
     .squareCard:has(.cardFooter) {
         --cardCount: 6;
     }
 
-    .backdropCard,
-    .layout-tv .portraitCard,
-    .layout-tv .squareCard,
-    .layout-tv .overflowPortraitCard,
-    .layout-tv .overflowSquareCard,
+    .backdropCard {
+        --cardCount: 6;
+    }
+
     .overflowBackdropCard {
         --cardCount: 5;
     }
 
     .layout-tv .backdropCard,
     .layout-tv .overflowBackdropCard {
-        --cardCount: 3;
+        --cardCount: 4;
     }
 }
 
@@ -847,9 +861,12 @@ select {
         --cardCount: 6;
     }
 
-    .backdropCard,
+    .backdropCard {
+        --cardCount: 6;
+    }
+
     .overflowBackdropCard {
-        --cardCount: 4;
+        --cardCount: 5;
     }
 }
 
@@ -933,16 +950,15 @@ select {
     }
 }
 
-.cardBox {
-    margin-top: 0;
+.layout-mobile .card {
+    --sidePadding: 5%;
 }
 
 .card {
-    --padding: 0.375em;
-    --effectiveWidth: calc(((100vw - (var(--padding) * 2)) - (var(--sidePadding) * 2)));
+    --effectiveWidth: calc((99vw - (var(--sidePadding) * 2)));
     --cardWidth: calc(var(--effectiveWidth) / var(--cardCount) - var(--itemColumnGap));
     width: var(--cardWidth) !important;
-    padding: var(--padding);
+    padding: 0.375em;
     transition: width 0.5s;
     box-sizing: content-box;
 }
@@ -955,7 +971,7 @@ select {
 }
 
 .layout-mobile .card {
-    --padding: 1px;
+    --cardWidth: calc(var(--effectiveWidth) / var(--cardCount));
 }
 
 /* this makes the card sizes smaller when phone is in landscape mode */
@@ -963,12 +979,6 @@ select {
     .layout-mobile .card {
         --effectiveWidth: calc((65vw - (var(--sidePadding) * 2)));
     }
-}
-
-#homeTab .overflowBackdropCard[data-positionticks],
-.nextUpItems > .card,
-#resumableItems > .card {
-    width: calc(var(--cardWidth) * var(--resumeCardScale)) !important;
 }
 
 .detailPageWrapperContainer {
@@ -1074,11 +1084,16 @@ select {
     font-size: 1.25em;
 }
 
+.verticalSection.emby-scroller-container > h2.sectionTitle.sectionTitle-cards {
+    padding-top: 1.25em !important;
+    margin: 0 0 -0.5em 0;
+}
+
 #itemDetailPage .emby-scroller-container,
 #itemDetailPage .emby-scroller,
 #itemDetailPage .scrollX {
     margin: 0 calc(-1 * var(--sidePadding));
-    padding-left: calc(var(--sidePadding));
+    padding-left: calc(var(--sidePadding) - 0.375em);
     /* mask-image: linear-gradient(90deg, transparent, white var(--sidePadding), white calc(100vw - var(--sidePadding)), transparent); */
 }
 
@@ -1090,7 +1105,7 @@ select {
 
 .emby-scroller,
 .scrollX {
-    padding-left: calc(var(--sidePadding));
+    padding-left: calc(var(--sidePadding) - 0.375em);
 }
 
 .sectionTabs .scrollX {
@@ -1099,7 +1114,6 @@ select {
 
 .itemsContainer:not(.editorsChoiceItemsContainer) {
     column-gap: var(--itemColumnGap);
-    row-gap: 1em;
 }
 
 .layout-desktop .sectionTitle,
@@ -1109,6 +1123,10 @@ select {
 
 .emby-scrollbuttons,
 [dir="ltr"] .emby-scrollbuttons {
+    padding-top: 1.25em;
+}
+
+.sectionTitleContainer + .emby-scrollbuttons {
     padding-top: 0;
 }
 
@@ -1447,16 +1465,15 @@ select {
     font-size: 3.5em;
 }
 
-.homeLibraryButton {
-    width: min(45%, 12rem);
-    min-width: 15%;
-    margin: 0 !important;
-}
-
 @media (max-width: 50em) {
     .homeLibraryButton {
-        width: 47.6% !important;
+        width: 45.6% !important;
     }
+}
+
+.homeLibraryButton {
+    padding-inline-start: 0.25em;
+    min-width: 15%;
 }
 
 @media (orientation: portrait) and (max-width: 40em) {
@@ -1801,10 +1818,6 @@ progress + span {
     padding-bottom: 5vh;
 }
 
-.mainDrawer-scrollContainer > div:first-child {
-    margin-bottom: 1em;
-}
-
 .btnHeaderSave.button-flat {
     color: var(--uiAccentColor) !important;
     gap: 0.3em;
@@ -2006,7 +2019,7 @@ progress + span {
 }
 
 .layout-mobile .innerCardFooter {
-    padding: 5em 1em 1.25em 1em;
+    padding: 5em 1.5em 1.5em 1.5em;
 }
 
 .layout-mobile .chapterCardImageContainer + .innerCardFooter {
@@ -2015,10 +2028,6 @@ progress + span {
 
 .centerMessage {
     width: unset;
-}
-
-.noItemsMessage {
-    width: 90%;
 }
 
 .dialog {
@@ -2213,8 +2222,8 @@ progress + span {
 }
 
 .layout-mobile .cardIndicators {
-    top: 0.45em;
-    right: 0.5em;
+    top: 0.2em;
+    right: 0.2em;
 }
 
 .indicator {
@@ -2317,28 +2326,16 @@ div[data-type="PhotoAlbum"] .play_arrow:before {
 }
 
 .detailButton-icon {
-    font-variation-settings:
-        "FILL" 0,
-        "wght" 400,
-        "GRAD" 0,
-        "opsz" 48;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .cardScalable .material-icons.check:before {
-    font-variation-settings:
-        "FILL" 1,
-        "wght" 700,
-        "GRAD" 0,
-        "opsz" 20;
+    font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 20;
     transform: scale(1.25);
 }
 
 .emby-button[title="Favorite"] .material-icons.favorite:before {
-    font-variation-settings:
-        "FILL" 1,
-        "wght" 400,
-        "GRAD" 0,
-        "opsz" 20;
+    font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 20;
 }
 
 .detailButton:not(.btnPlay) {
@@ -2372,9 +2369,9 @@ div[data-type="PhotoAlbum"] .play_arrow:before {
     flex-direction: row;
 }
 
-.mainDetailButtons > .btnPlay:after {
+.btnPlay:not(.formDialogFooterItem):not(.play-button):after {
     content: attr(title);
-    padding-right: 1ch;
+    padding: 0 1ch;
 }
 
 .btnPlay > .detailButton-content::after {
@@ -2614,7 +2611,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .MuiListItem-root > div {
     border: solid transparent var(--borderWidth);
     border-radius: 0.7em;
-    /* margin: 0.25em 0.5em !important; */
+    margin: 0.25 0.5em !important;
 }
 
 .Mui-selected {
@@ -2638,13 +2635,9 @@ div[data-role="controlgroup"] a.ui-btn-active {
     font-size: unset;
 }
 
-[dir="ltr"] .actionsheetMenuItemIcon {
-    margin: 0 0.2em 0 0.45em !important;
-}
-
-/* [dir="ltr"] .actionsheetMenuItemIcon.check {
+[dir="ltr"] .actionsheetMenuItemIcon.check {
     margin: 0 0.45em 0 0.45em !important;
-} */
+}
 
 .actionSheetMenuItem:has(.listItemIcon.check) {
     background-color: var(--activeColor);
@@ -2690,12 +2683,12 @@ div[data-role="controlgroup"] a.ui-btn-active {
     row-gap: 1em;
     column-gap: 3em;
     max-width: unset !important;
-    grid-template-columns: 1.3fr 0.7fr 1fr 1fr;
+    grid-template-columns: 25% 1fr 1fr 1fr;
     margin-bottom: 1.5em;
 }
 
 .layout-mobile .detailSection {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
 }
 
 .detailPageContent {
@@ -2866,10 +2859,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
     grid-column: 1 / -1;
 }
 
-.collectionItems {
-    order: 2;
-}
-
 .programGuideSection:not(.hide) {
     order: -1;
     margin-top: 2em;
@@ -2908,10 +2897,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
     height: 70%;
 }
 
-.layout-mobile .alphaPicker-vertical {
-    right: 0 !important;
-}
-
 .alphaPicker {
     justify-content: center;
 }
@@ -2928,6 +2913,20 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .padded-right {
     padding-right: var(--sidePadding) !important;
 }
+
+/* .padded-left {
+    padding-left: var(--sidePadding) !important;
+} */
+
+.layout-mobile .padded-right-withalphapicker {
+    padding-left: 4.5%;
+    padding-right: 6.5%;
+}
+
+/* test disabled for 10.11.0 */
+/* .detailPagePrimaryContent.padded-right {
+    padding-right: 0 !important;
+} */
 
 [dir="ltr"] .detailPageContent,
 .content-primary {
@@ -2984,11 +2983,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
     background: var(--selectorBackgroundColor) !important;
 }
 
-.verticalSection {
-    margin-top: 0.5em;
-    margin-bottom: 1em;
-}
-
 .sectionTitleTextButton {
     padding: 0 0.5em;
 }
@@ -3003,7 +2997,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 .sectionTitleContainer-cards {
     padding-top: 0;
-    padding-bottom: 0.2em;
+    margin: 0.75em 0 -0.75em 0;
 }
 
 .sectionTitleTextButton > * {
@@ -3018,6 +3012,11 @@ div[data-role="controlgroup"] a.ui-btn-active {
     max-width: 88vw;
 }
 
+/* this is needed for alignment of non-clickable section headings on phones */
+.layout-mobile :not(.sectionTitleContainer-cards) > .sectionTitle-cards {
+    margin: 0.75em 0 -0.75em 0;
+}
+
 .dashboardSection .sectionTitleTextButton > .material-icons,
 .sectionTitleTextButton > .material-icons,
 .dashboardSection .sectionTitleTextButton > .material-icons.material-icons {
@@ -3029,7 +3028,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .sectionTitleTextButton > .material-icons.chevron_right {
-    /* margin-left: 0.5rem !important; */
+    margin-left: 0.5rem !important;
     height: 1.5rem;
     width: 1.5rem;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23D1D5DB' aria-hidden='true'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M12.75 15l3-3m0 0l-3-3m3 3h-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E")
@@ -3073,14 +3072,13 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .skip-button-container {
-    bottom: 9rem;
+    bottom: 25%;
 }
 
 .skip-button {
-    background-color: var(--textColor);
+    background-color: whitesmoke;
     box-shadow: var(--shadow);
     margin-right: var(--sidePadding);
-    border-radius: 3em;
     color: black;
 }
 
@@ -3481,8 +3479,8 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     min-height: 100vh;
     padding: 1em;
     overflow-y: auto;
-    background:
-        linear-gradient(to bottom, var(--darkerGradientPointAlpha), var(--lighterGradientPoint)), var(--loginPageBgUrl);
+    background: linear-gradient(to bottom, var(--darkerGradientPointAlpha), var(--lighterGradientPoint)),
+        var(--loginPageBgUrl);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -3855,7 +3853,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 
 .noHomeButtonHeader .emby-tab-button:before {
     font-family: "Material Icons Round";
-    /* padding-inline-end: 0.5ch; */
+    padding-inline-end: 0.5ch;
     font-size: 1.2em;
     font-variation-settings: "FILL" 0;
 }
@@ -3957,7 +3955,6 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     container-name: skinHeader;
     container-type: size;
     height: var(--appBarHeight);
-    max-height: var(--appBarHeight);
 }
 
 @container skinHeader (min-height: 4.9em) {
@@ -4041,9 +4038,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 .card.show-animation .cardBox {
-    transition:
-        transform 0.05s ease-out,
-        -webkit-transform 0.05s ease-out;
+    transition: transform 0.05s ease-out, -webkit-transform 0.05s ease-out;
 }
 
 /* performance improvements fot low-end TVs - end */

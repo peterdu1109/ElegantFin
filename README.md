@@ -26,7 +26,7 @@
 
 ### What is this?
 
-This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **20 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
+This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **29 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
 
 Everything works on **desktop, mobile and TV** with a single CSS import.
 
@@ -64,6 +64,7 @@ Everything works on **desktop, mobile and TV** with a single CSS import.
 | **Watched Overlay** | Subtle dark overlay on already-watched items |
 | **Sidebar Glass** | Enhanced sidebar with glass effect, styled nav items |
 | **Scroll-to-Top Glass** | Glass-effect scroll-to-top button with hover lift |
+| **Editor's Choice Cinema** | Cinematic styling for the Editor's Choice plugin (gradient overlay, glass buttons, zoom backdrop) |
 
 ---
 
@@ -128,6 +129,7 @@ All original ElegantFin customization options are preserved. Add these overrides
 | Web browsers (Chrome, Edge, Firefox, Safari) | Fully supported |
 | Jellyfin Android App | Fully supported |
 | LG WebOS | Supported (may need icon pack fix) |
+| Samsung Tizen (Jellyfin community) | Supported (2022+ TVs fully compatible) |
 | Android TV native app | Not supported (no CSS support) |
 | Jellyfin Media Player (Qt 5.x) | Partial (outdated web engine) |
 
@@ -154,7 +156,7 @@ All original ElegantFin customization options are preserved. Add these overrides
 
 ### C'est quoi ?
 
-C'est une **Edition Cinema** du theme ElegantFin par [lscambo13](https://github.com/lscambo13), enrichie de **20 modules cinematiques** qui transforment votre Jellyfin en une experience de streaming professionnelle inspiree de Netflix, Disney+ et Apple TV+.
+C'est une **Edition Cinema** du theme ElegantFin par [lscambo13](https://github.com/lscambo13), enrichie de **29 modules cinematiques** qui transforment votre Jellyfin en une experience de streaming professionnelle inspiree de Netflix, Disney+ et Apple TV+.
 
 Tout fonctionne sur **bureau, mobile et TV** avec un seul import CSS.
 
@@ -192,6 +194,7 @@ Tout fonctionne sur **bureau, mobile et TV** avec un seul import CSS.
 | **Overlay vu** | Overlay sombre subtil sur les elements deja vus |
 | **Sidebar verre** | Sidebar amelioree avec effet verre et navigation stylee |
 | **Scroll-to-Top verre** | Bouton retour en haut avec effet verre et levitation |
+| **Editor's Choice Cinema** | Style cinematique pour le plugin Editor's Choice (degrade, boutons verre, zoom backdrop) |
 
 ---
 
@@ -256,6 +259,7 @@ Toutes les options de personnalisation originales d'ElegantFin sont preservees. 
 | Navigateurs web (Chrome, Edge, Firefox, Safari) | Entierement supporte |
 | Jellyfin Android App | Entierement supporte |
 | LG WebOS | Supporte (peut necessiter le fix icones) |
+| Samsung Tizen (Jellyfin community) | Supporte (TV 2022+ entierement compatible) |
 | Android TV app native | Non supporte (pas de support CSS) |
 | Jellyfin Media Player (Qt 5.x) | Partiel (moteur web obsolete) |
 

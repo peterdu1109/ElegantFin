@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.1.2
+# ElegantFin Cinema Edition v1.2.0
 
 ## [English](#english) | [Francais](#francais)
 
@@ -7,9 +7,22 @@
 <a name="english"></a>
 ## English
 
-### Cinema Edition — 20 cinematic modules on top of ElegantFin v26.04.07
+### Cinema Edition — 28 cinematic modules on top of ElegantFin v26.04.07
 
 This release transforms the ElegantFin theme into a professional, Netflix-inspired streaming experience while keeping full compatibility with desktop, mobile, and TV platforms.
+
+---
+
+#### New in v1.2.0 — 8 Cinema Features
+
+- **Skeleton loading** — Animated pulse placeholder while card images load, with subtle gradient shimmer. Disabled on TV and reduced-motion.
+- **Hover preview info** — Secondary text (year, rating, genres) smoothly reveals on card hover with a cinematic bottom gradient overlay (desktop only)
+- **Scroller edge fade** — Left/right gradient edges on horizontal scroll rows, indicating scrollable content. Uses `--backgroundForAppBar` for seamless blending.
+- **Scroll-to-top glass** — Glass-effect button with `backdrop-filter: blur(15px)`, border glow, and hover lift animation
+- **Resolution badges** — Color-coded media info badges: 4K (gold), HDR (green), Dolby Vision (purple), Atmos (cyan) with matching borders and subtle backgrounds
+- **Now Playing bar glass** — Glassmorphism on the Now Playing bar with `blur(20px) saturate(1.4)`, dark border-top, and shadow. Disabled on TV.
+- **Watched overlay** — Subtle dark overlay (`rgba(0,0,0,0.35)`) on already-watched cards, fading out on hover. Uses `:has(.playedIndicator)`.
+- **Sidebar glass enhanced** — Sidebar with `blur(20px)`, styled nav items with rounded corners, hover highlights, selected state styling, and uppercase section headers
 
 ---
 
@@ -47,7 +60,7 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **TV optimizations** — All `backdrop-filter`, `box-shadow`, animations, `will-change`, and shimmer disabled on TV layout
 - **Mobile optimizations** — Reduced blur intensity (`blur(10px)` instead of `blur(20px)`) via `@supports` query
 - **GPU hints** — `will-change: transform` on hover only (not permanent), disabled on TV to free GPU memory
-- **Reduced motion** — Full `prefers-reduced-motion: reduce` coverage: page transitions, shimmer, login bounce, backdrop fade, card hover
+- **Reduced motion** — Full `prefers-reduced-motion: reduce` coverage: page transitions, shimmer, skeleton, login bounce, backdrop fade, card hover
 - **Thin scrollbars** — 4px cross-browser scrollbars scoped to `html` (inherited, not universal `*`)
 - **Focus-visible** — Keyboard navigation focus rings on tabs, Play button, detail buttons, skip button, login
 
@@ -64,20 +77,9 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 ---
 
-#### v1.1.2 — Quality & Compatibility Fixes
-
-- **Bug fixes** — Fixed missing unit (`0.25` → `0.25em`), invalid `border-radius: inherit` in shorthand (Firefox), 6 duplicate CSS properties removed
-- **Accessibility** — Alpha picker contrast raised from 20% to 50% opacity (WCAG), tab focus outline restored, complete reduced-motion coverage
-- **Performance** — `will-change: transform` moved to hover-only (saves GPU memory), scrollbar scoped to `html` instead of `*`
-- **Responsive** — Login card uses `min(28em, calc(100vw - 2em))` for small screens, fluid `clamp()` title sizing
-- **Firefox** — Complete `::-moz-range-thumb` and `::-moz-progress-bar` styling
-- **Visual consistency** — Named colors (`peru`, `steelblue`, `indianred`, `whitesmoke`) replaced with curated RGB values, `.button-link` uses `var(--dimTextColor)`
-
----
-
 ### Compatibility
 - Jellyfin **10.11.x**
-- Works on all web browsers (Chrome, Edge, Firefox, Safari), Android app, LG WebOS
+- Works on all web browsers (Chrome, Edge, Firefox, Safari), Android app, LG WebOS, Samsung Tizen
 - Full `@supports` fallback for browsers without `backdrop-filter`
 
 ---
@@ -85,9 +87,22 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 <a name="francais"></a>
 ## Francais
 
-### Edition Cinema — 20 modules cinematiques par-dessus ElegantFin v26.04.07
+### Edition Cinema — 28 modules cinematiques par-dessus ElegantFin v26.04.07
 
 Cette version transforme le theme ElegantFin en une experience de streaming professionnelle inspiree de Netflix, tout en gardant la compatibilite complete avec bureau, mobile et TV.
+
+---
+
+#### Nouveau dans v1.2.0 — 8 fonctionnalites Cinema
+
+- **Skeleton loading** — Placeholder anime avec effet de pulsation pendant le chargement des images, avec degrade subtil. Desactive sur TV et mouvement reduit.
+- **Info au survol** — Texte secondaire (annee, note, genres) apparait en douceur au survol des cartes avec un degrade cinematique (bureau uniquement)
+- **Fondu bords scroller** — Degrades lateraux sur les rangees de defilement horizontal, indiquant le contenu defilable. Utilise `--backgroundForAppBar` pour une integration fluide.
+- **Scroll-to-top verre** — Bouton avec `backdrop-filter: blur(15px)`, bordure lumineuse, et animation de levitation au survol
+- **Badges resolution** — Badges media colores : 4K (dore), HDR (vert), Dolby Vision (violet), Atmos (cyan) avec bordures assorties et fonds subtils
+- **Barre Now Playing verre** — Glassmorphism sur la barre de lecture en cours avec `blur(20px) saturate(1.4)`, bordure sombre et ombre. Desactive sur TV.
+- **Overlay vu** — Overlay sombre subtil (`rgba(0,0,0,0.35)`) sur les cartes deja vues, s'estompant au survol. Utilise `:has(.playedIndicator)`.
+- **Sidebar verre amelioree** — Sidebar avec `blur(20px)`, items de navigation avec coins arrondis, surbrillance au survol, etat selectionne stylise, et en-tetes de section en majuscules
 
 ---
 
@@ -125,7 +140,7 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Optimisations TV** — Tous les `backdrop-filter`, `box-shadow`, animations, `will-change` et shimmer desactives sur layout TV
 - **Optimisations mobile** — Intensite de blur reduite (`blur(10px)` au lieu de `blur(20px)`) via requete `@supports`
 - **Hints GPU** — `will-change: transform` uniquement au survol (pas permanent), desactive sur TV pour liberer la memoire GPU
-- **Mouvement reduit** — Couverture complete `prefers-reduced-motion: reduce` : transitions, shimmer, login bounce, backdrop, hover cartes
+- **Mouvement reduit** — Couverture complete `prefers-reduced-motion: reduce` : transitions, shimmer, skeleton, login bounce, backdrop, hover cartes
 - **Scrollbars fines** — Scrollbars 4px cross-browser sur `html` (herite, pas `*` universel)
 - **Focus-visible** — Indicateurs de focus clavier sur onglets, bouton Play, boutons detail, skip, login
 
@@ -142,18 +157,7 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 
 ---
 
-#### v1.1.2 — Corrections qualite & compatibilite
-
-- **Corrections de bugs** — Unite manquante (`0.25` → `0.25em`), `border-radius: inherit` invalide en shorthand (Firefox), 6 proprietes CSS dupliquees supprimees
-- **Accessibilite** — Contraste alpha picker augmente de 20% a 50% (WCAG), outline focus restaure sur onglets, couverture complete reduced-motion
-- **Performance** — `will-change: transform` deplace au survol uniquement (economie memoire GPU), scrollbar cible sur `html` au lieu de `*`
-- **Responsive** — Carte de login utilise `min(28em, calc(100vw - 2em))` pour petits ecrans, taille de titres fluide avec `clamp()`
-- **Firefox** — Stylisation complete `::-moz-range-thumb` et `::-moz-progress-bar`
-- **Coherence visuelle** — Couleurs nommees (`peru`, `steelblue`, `indianred`, `whitesmoke`) remplacees par des valeurs RGB, `.button-link` utilise `var(--dimTextColor)`
-
----
-
 ### Compatibilite
 - Jellyfin **10.11.x**
-- Fonctionne sur tous les navigateurs web (Chrome, Edge, Firefox, Safari), application Android, LG WebOS
+- Fonctionne sur tous les navigateurs web (Chrome, Edge, Firefox, Safari), application Android, LG WebOS, Samsung Tizen
 - Fallback `@supports` complet pour les navigateurs sans `backdrop-filter`

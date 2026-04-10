@@ -1,4 +1,4 @@
-/* ElegantFin Cinema Edition v1.1.0 — Based on ElegantFin v26.04.07 */
+/* ElegantFin Cinema Edition v1.1.1 — Based on ElegantFin v26.04.07 */
 /* Enhanced with 20 cinematic modules — Netflix-inspired streaming experience */
 
 /* Add-ons: Uncomment to enable */
@@ -9,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.1.0";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.1.1";
 
     /* Base theme colors */
     color-scheme: dark;

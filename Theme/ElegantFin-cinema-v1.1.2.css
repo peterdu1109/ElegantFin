@@ -1,4 +1,4 @@
-/* ElegantFin Cinema Edition v1.1.1 — Based on ElegantFin v26.04.07 */
+/* ElegantFin Cinema Edition v1.1.2 — Based on ElegantFin v26.04.07 */
 /* Enhanced with 20 cinematic modules — Netflix-inspired streaming experience */
 
 /* Add-ons: Uncomment to enable */
@@ -9,7 +9,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.1.1";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.1.2";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -251,7 +251,6 @@ body {
     word-wrap: normal;
     white-space: nowrap;
     direction: ltr;
-    line-height: 1;
     vertical-align: middle;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -278,6 +277,7 @@ body {
     display: inline-grid;
     width: 100%;
     width: -webkit-fill-available;
+    width: stretch;
     justify-content: center;
     font-weight: 600;
 }
@@ -287,7 +287,7 @@ body {
 }
 
 /* Scrollbars — Cross-browser */
-* {
+html {
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
@@ -337,7 +337,8 @@ body {
 }
 
 .emby-tabs .emby-button.show-focus:focus {
-    outline: none !important;
+    outline: 2px solid var(--uiAccentColor);
+    outline-offset: -2px;
 }
 
 [dir="ltr"] .itemsContainer > .card > .cardBox {
@@ -376,6 +377,9 @@ body {
     transition: transform 0.3s var(--ease-smooth),
                 box-shadow 0.3s var(--ease-smooth),
                 border-color 0.3s var(--ease-smooth) !important;
+}
+
+.card-hoverable:hover .cardScalable {
     will-change: transform;
 }
 
@@ -635,7 +639,6 @@ body {
     color: white;
     border: none;
     text-shadow: 1px 1px 0.1em black;
-    color: white;
 }
 
 .cardOverlayContainer:has(> button:hover) {
@@ -1090,21 +1093,18 @@ body {
 }
 
 .layout-desktop .detailPageWrapperContainer {
-    background: transparent;
     min-height: 46vh;
     background: linear-gradient(180deg, transparent, 17vh, var(--darkerGradientPointAlpha) 50vh);
 }
 
 .layout-tv .detailPageWrapperContainer {
     padding-left: 30vw;
-    background: transparent;
     min-height: 46vh;
     background: linear-gradient(0deg, var(--darkerGradientPointAlpha) 70%, 85%, transparent);
 }
 
 .detailPagePrimaryContainer {
     align-content: space-between;
-    align-items: stretch;
     justify-content: end;
     flex-direction: column;
     /* center content on desktop */
@@ -1788,8 +1788,14 @@ html,
 @media (prefers-reduced-motion: reduce) {
     .page:not(.hide),
     .emby-scroller-container,
-    .verticalSection {
+    .verticalSection,
+    .section0 .cardImageContainer::before,
+    .backdropImageFadeIn,
+    #loginPage .padded-left.padded-right.padded-bottom-page {
         animation: none !important;
+    }
+    .card-hoverable:hover .cardScalable {
+        transform: none !important;
     }
 }
 
@@ -1897,12 +1903,12 @@ html,
 
 ::-moz-progress-bar {
     background: var(--uiAccentColor) !important;
-    border-radius: var(--smallRadius) inherit var(--smallRadius) 0;
+    border-radius: var(--smallRadius) var(--smallRadius) var(--smallRadius) 0;
 }
 
 ::-webkit-progress-value {
     background: var(--uiAccentColor) !important;
-    border-radius: var(--smallRadius) inherit var(--smallRadius) 0;
+    border-radius: var(--smallRadius) var(--smallRadius) var(--smallRadius) 0;
 }
 
 progress,
@@ -1992,6 +1998,16 @@ progress + span {
 
 .mdl-slider::-moz-range-thumb {
     background: var(--osdSeekBarThumbColor);
+    width: 0.6em;
+    height: 0.6em;
+    border: none;
+    border-radius: 2px;
+    transition: transform 0.15s var(--ease-smooth);
+}
+
+.mdl-slider:hover::-moz-range-thumb,
+.mdl-slider:active::-moz-range-thumb {
+    transform: scale(1) scaleY(1.25);
 }
 
 .sliderMarkerContainer {
@@ -2016,7 +2032,7 @@ progress + span {
 }
 
 .button-link {
-    color: rgb(200, 200, 200);
+    color: var(--dimTextColor);
 }
 
 .button-link:hover {
@@ -2508,15 +2524,15 @@ progress + span {
 
 .videoIndicator:has(.photo_album),
 .videoIndicator:has(.folder) {
-    background: peru;
+    background: rgb(180, 130, 70);
 }
 
 .videoIndicator:has(.photo) {
-    background: steelblue;
+    background: rgb(80, 130, 170);
 }
 
 .videoIndicator:has(.videocam) {
-    background: indianred;
+    background: rgb(170, 80, 80);
 }
 
 .defaultCardBackground,
@@ -2633,12 +2649,6 @@ div[data-type="PhotoAlbum"] .play_arrow:before {
     margin-right: 0.5em !important;
     flex-direction: row;
     transition: all 0.2s var(--ease-smooth) !important;
-}
-
-.layout-desktop .btnPlay.detailButton:hover {
-    background-color: rgba(255, 255, 255, 0.85) !important;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Focus-visible for Cinema Edition buttons */
@@ -2913,7 +2923,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .MuiListItem-root > div {
     border: solid transparent var(--borderWidth);
     border-radius: 0.7em;
-    margin: 0.25 0.5em !important;
+    margin: 0.25em 0.5em !important;
 }
 
 .Mui-selected {
@@ -3193,7 +3203,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .alphaPickerButton {
     font-family: monospace;
     margin: 0.15em;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.5);
     transition: color 0.15s ease;
 }
 
@@ -3399,7 +3409,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .skip-button {
-    background-color: whitesmoke;
+    background-color: #f5f5f5;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
     margin-right: var(--sidePadding);
     color: black;
@@ -3599,7 +3609,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 .nameContainer > h1.itemName,
 .nameContainer > h1.parentName {
-    font-size: 4em;
+    font-size: clamp(2em, 5vw, 4em);
     white-space: pre-wrap;
     padding-bottom: 0.5ch;
     color: white;
@@ -3856,7 +3866,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 #loginPage .padded-left.padded-right.padded-bottom-page {
-    width: 28em;
+    width: min(28em, calc(100vw - 2em));
     background: rgba(17, 24, 39, 0.92) !important;
     padding: 2em 2em 1em 2em !important;
     border-radius: var(--largerRadius);
@@ -4487,13 +4497,6 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 /* ============================================================
    PERFORMANCES — GPU + TV + Mobile
    ============================================================ */
-
-.backdropImage,
-.backdropImage::before,
-.backdropImage::after,
-.cardImageContainer {
-    will-change: transform;
-}
 
 .cardImageContainer {
     background-color: transparent;

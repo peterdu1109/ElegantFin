@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.1.1
+# ElegantFin Cinema Edition v1.1.2
 
 ## [English](#english) | [Francais](#francais)
 
@@ -38,6 +38,7 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Navigation tabs** — White active tab (`#fff`/`#000`), subtle inactive (`rgba(255,255,255,0.06)`) with smooth hover
 - **Long titles fix** — Responsive line-clamp (2 desktop, 3 mobile, 2 TV), word-break on metadata, card text overflow handling
 - **Typography hierarchy** — Refined font-weights for episode titles (600), secondary text (`dimTextColor`), page title (500)
+- **Fluid title sizing** — `clamp(2em, 5vw, 4em)` for smooth scaling across all screen sizes
 
 ---
 
@@ -45,9 +46,10 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 - **TV optimizations** — All `backdrop-filter`, `box-shadow`, animations, `will-change`, and shimmer disabled on TV layout
 - **Mobile optimizations** — Reduced blur intensity (`blur(10px)` instead of `blur(20px)`) via `@supports` query
-- **GPU hints** — `will-change: transform` on backdrop images and card containers (disabled on TV to free GPU memory)
-- **Reduced motion** — All page and section animations respect `prefers-reduced-motion: reduce`
-- **Thin scrollbars** — 4px cross-browser scrollbars (`scrollbar-width: thin` + `::-webkit-scrollbar`)
+- **GPU hints** — `will-change: transform` on hover only (not permanent), disabled on TV to free GPU memory
+- **Reduced motion** — Full `prefers-reduced-motion: reduce` coverage: page transitions, shimmer, login bounce, backdrop fade, card hover
+- **Thin scrollbars** — 4px cross-browser scrollbars scoped to `html` (inherited, not universal `*`)
+- **Focus-visible** — Keyboard navigation focus rings on tabs, Play button, detail buttons, skip button, login
 
 ---
 
@@ -57,13 +59,25 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **OSD header glass** — `rgba(0,0,0,0.85)` background with `blur(10px)` on the video player header
 - **OSD bottom gradient** — Softer 3-stop gradient (85% to 50% to transparent)
 - **Reactive slider** — Expands to `0.5em` on hover, white thumb with `border-radius: 2px`, glow on progress bar
+- **Firefox slider** — Full `::-moz-range-thumb` styling matching WebKit (size, border, radius, transitions)
 - **Skip button** — Bold (700), `letter-spacing: 0.03em`, `scale(1.03)` on hover
+
+---
+
+#### v1.1.2 — Quality & Compatibility Fixes
+
+- **Bug fixes** — Fixed missing unit (`0.25` → `0.25em`), invalid `border-radius: inherit` in shorthand (Firefox), 6 duplicate CSS properties removed
+- **Accessibility** — Alpha picker contrast raised from 20% to 50% opacity (WCAG), tab focus outline restored, complete reduced-motion coverage
+- **Performance** — `will-change: transform` moved to hover-only (saves GPU memory), scrollbar scoped to `html` instead of `*`
+- **Responsive** — Login card uses `min(28em, calc(100vw - 2em))` for small screens, fluid `clamp()` title sizing
+- **Firefox** — Complete `::-moz-range-thumb` and `::-moz-progress-bar` styling
+- **Visual consistency** — Named colors (`peru`, `steelblue`, `indianred`, `whitesmoke`) replaced with curated RGB values, `.button-link` uses `var(--dimTextColor)`
 
 ---
 
 ### Compatibility
 - Jellyfin **10.11.x**
-- Works on all web browsers, Android app, LG WebOS
+- Works on all web browsers (Chrome, Edge, Firefox, Safari), Android app, LG WebOS
 - Full `@supports` fallback for browsers without `backdrop-filter`
 
 ---
@@ -102,6 +116,7 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Onglets de navigation** — Onglet actif blanc (`#fff`/`#000`), inactifs subtils (`rgba(255,255,255,0.06)`) avec hover fluide
 - **Fix longs titres** — Line-clamp responsive (2 bureau, 3 mobile, 2 TV), word-break sur les metadonnees, gestion overflow du texte des cartes
 - **Hierarchie typographique** — Poids affines pour titres d'episodes (600), texte secondaire (`dimTextColor`), titre de page (500)
+- **Taille de titres fluide** — `clamp(2em, 5vw, 4em)` pour un dimensionnement fluide sur toutes les tailles d'ecran
 
 ---
 
@@ -109,9 +124,10 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 
 - **Optimisations TV** — Tous les `backdrop-filter`, `box-shadow`, animations, `will-change` et shimmer desactives sur layout TV
 - **Optimisations mobile** — Intensite de blur reduite (`blur(10px)` au lieu de `blur(20px)`) via requete `@supports`
-- **Hints GPU** — `will-change: transform` sur les images backdrop et conteneurs de cartes (desactive sur TV pour liberer la memoire GPU)
-- **Mouvement reduit** — Toutes les animations de page et section respectent `prefers-reduced-motion: reduce`
-- **Scrollbars fines** — Scrollbars 4px cross-browser (`scrollbar-width: thin` + `::-webkit-scrollbar`)
+- **Hints GPU** — `will-change: transform` uniquement au survol (pas permanent), desactive sur TV pour liberer la memoire GPU
+- **Mouvement reduit** — Couverture complete `prefers-reduced-motion: reduce` : transitions, shimmer, login bounce, backdrop, hover cartes
+- **Scrollbars fines** — Scrollbars 4px cross-browser sur `html` (herite, pas `*` universel)
+- **Focus-visible** — Indicateurs de focus clavier sur onglets, bouton Play, boutons detail, skip, login
 
 ---
 
@@ -121,11 +137,23 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Header OSD en verre** — Fond `rgba(0,0,0,0.85)` avec `blur(10px)` sur l'en-tete du lecteur video
 - **Degrade OSD bas** — Degrade plus doux a 3 paliers (85% vers 50% vers transparent)
 - **Slider reactif** — S'agrandit a `0.5em` au survol, pouce blanc avec `border-radius: 2px`, lueur sur la barre de progression
+- **Slider Firefox** — Stylisation complete `::-moz-range-thumb` identique a WebKit (taille, bordure, radius, transitions)
 - **Bouton skip** — Gras (700), `letter-spacing: 0.03em`, `scale(1.03)` au survol
+
+---
+
+#### v1.1.2 — Corrections qualite & compatibilite
+
+- **Corrections de bugs** — Unite manquante (`0.25` → `0.25em`), `border-radius: inherit` invalide en shorthand (Firefox), 6 proprietes CSS dupliquees supprimees
+- **Accessibilite** — Contraste alpha picker augmente de 20% a 50% (WCAG), outline focus restaure sur onglets, couverture complete reduced-motion
+- **Performance** — `will-change: transform` deplace au survol uniquement (economie memoire GPU), scrollbar cible sur `html` au lieu de `*`
+- **Responsive** — Carte de login utilise `min(28em, calc(100vw - 2em))` pour petits ecrans, taille de titres fluide avec `clamp()`
+- **Firefox** — Stylisation complete `::-moz-range-thumb` et `::-moz-progress-bar`
+- **Coherence visuelle** — Couleurs nommees (`peru`, `steelblue`, `indianred`, `whitesmoke`) remplacees par des valeurs RGB, `.button-link` utilise `var(--dimTextColor)`
 
 ---
 
 ### Compatibilite
 - Jellyfin **10.11.x**
-- Fonctionne sur tous les navigateurs web, application Android, LG WebOS
+- Fonctionne sur tous les navigateurs web (Chrome, Edge, Firefox, Safari), application Android, LG WebOS
 - Fallback `@supports` complet pour les navigateurs sans `backdrop-filter`

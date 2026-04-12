@@ -4858,6 +4858,12 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     padding-left: var(--sidePadding);
 }
 
+/* Force full-width single slide */
+.editorsChoiceContainer .splide__slide {
+    min-width: 100% !important;
+    flex-shrink: 0;
+}
+
 /* Slides — Cinematic banner */
 .editorsChoiceItemBanner {
     position: relative;
@@ -4869,6 +4875,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     overflow: hidden;
     text-decoration: none !important;
     min-height: 360px;
+    width: 100% !important;
 }
 
 .editorsChoiceItemBanner::before {
@@ -4947,8 +4954,10 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* "More info" button — Cinema style */
-.editorsChoiceItemButton {
+/* "More info" / "Regarder" button — Cinema style */
+.editorsChoiceItemButton,
+.editorsChoiceContainer .button-submit,
+.editorsChoiceContainer .emby-button.raised {
     background-color: rgba(255, 255, 255, 0.15) !important;
     color: #fff !important;
     border: 1px solid rgba(255, 255, 255, 0.25) !important;
@@ -4962,13 +4971,17 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
-    .editorsChoiceItemButton {
+    .editorsChoiceItemButton,
+    .editorsChoiceContainer .button-submit,
+    .editorsChoiceContainer .emby-button.raised {
         backdrop-filter: blur(10px) saturate(1.3);
         -webkit-backdrop-filter: blur(10px) saturate(1.3);
     }
 }
 
-.editorsChoiceItemButton:hover {
+.editorsChoiceItemButton:hover,
+.editorsChoiceContainer .button-submit:hover,
+.editorsChoiceContainer .emby-button.raised:hover {
     background-color: #fff !important;
     color: #000 !important;
     border-color: #fff !important;
@@ -4976,7 +4989,9 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
 }
 
-.editorsChoiceItemButton:focus-visible {
+.editorsChoiceItemButton:focus-visible,
+.editorsChoiceContainer .button-submit:focus-visible,
+.editorsChoiceContainer .emby-button.raised:focus-visible {
     outline: 2px solid var(--uiAccentColor);
     outline-offset: 3px;
 }

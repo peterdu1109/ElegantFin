@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.1
+# ElegantFin Cinema Edition v1.2.2
 
 ## [English](#english) | [Francais](#francais)
 
@@ -85,6 +85,15 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **OSD header TV** — Allows 2-line titles, reduced header height to 3.5em — fixes oversized black bar
 - **OSD title mobile** — `line-clamp: 2` with wider max-width for long titles
 - **Card hover** — Removed double zoom (1.06 x 1.04 = 1.10) — now single clean 1.06x pop
+
+---
+
+#### v1.2.2 — Editor's Choice Cinema
+
+- **Editor's Choice Cinema** — Full cinematic styling for the Editor's Choice plugin: gradient overlay, glass buttons, zoom backdrop, smooth transitions
+- **Full-width slides** — Splide carousel now shows one slide at a time (`min-width: 100%`) instead of cutting multiple slides
+- **Cinema buttons** — Plugin buttons (`.button-submit`, `.emby-button.raised`) now styled with glass effect, white text, and hover lift matching the Cinema theme
+- **TV disable** — All Editor's Choice blur, shadows, and animations disabled on TV layout
 
 ---
 
@@ -176,6 +185,15 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Header OSD TV** — Titres sur 2 lignes autorises, hauteur reduite a 3.5em — corrige la barre noire surdimensionnee
 - **Titre OSD mobile** — `line-clamp: 2` avec largeur max elargie pour les longs titres
 - **Hover cartes** — Double zoom supprime (1.06 x 1.04 = 1.10) — maintenant un seul pop propre a 1.06x
+
+---
+
+#### v1.2.2 — Editor's Choice Cinema
+
+- **Editor's Choice Cinema** — Style cinematique complet pour le plugin Editor's Choice : degrade overlay, boutons en verre, zoom backdrop, transitions fluides
+- **Slides pleine largeur** — Le carrousel Splide affiche maintenant un slide a la fois (`min-width: 100%`) au lieu de couper plusieurs slides
+- **Boutons Cinema** — Les boutons du plugin (`.button-submit`, `.emby-button.raised`) sont maintenant styles avec effet verre, texte blanc et levitation au survol, en accord avec le theme Cinema
+- **Desactivation TV** — Tous les blur, ombres et animations Editor's Choice desactives sur layout TV
 
 ---
 

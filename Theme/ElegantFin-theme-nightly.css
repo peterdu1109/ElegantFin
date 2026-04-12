@@ -1196,6 +1196,26 @@ html {
     max-width: calc(100vw - 25em);
 }
 
+/* OSD: allow 2-line titles on TV for long episode names */
+.layout-tv .osdHeader .headerLeft .pageTitle {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    height: auto;
+    max-height: 3em;
+    line-height: 1.3;
+    font-size: 0.9em;
+}
+
+/* OSD: allow 2-line titles on mobile for long episode names */
+.layout-mobile .osdHeader .headerLeft .pageTitle {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    height: auto;
+    max-height: 3em;
+    line-height: 1.3;
+    max-width: calc(100vw - 7em);
+}
+
 .paper-icon-button-light > .material-icons {
     font-size: 1.25em;
 }
@@ -1681,8 +1701,8 @@ html,
 .backdropImage:after {
     z-index: 0;
     height: 90vh;
-    -webkit-mask: linear-gradient(180deg, rgba(0,0,0,1) 45%, transparent);
-    mask: linear-gradient(180deg, rgba(0,0,0,1) 45%, transparent);
+    -webkit-mask: linear-gradient(180deg, rgba(0,0,0,1) 65%, transparent);
+    mask: linear-gradient(180deg, rgba(0,0,0,1) 65%, transparent);
 }
 
 .layout-desktop .backdropImage:after {
@@ -1695,12 +1715,12 @@ html,
 }
 
 .backgroundContainer.withBackdrop {
-    opacity: 0.55;
+    opacity: 0.65;
     background: linear-gradient(0deg, var(--darkerGradientPoint), 45%, rgba(17, 24, 39, 0.25));
 }
 
 .layout-tv .backgroundContainer.withBackdrop {
-    background: linear-gradient(0deg, var(--darkerGradientPoint), 45%, rgba(17, 24, 39, 0.95));
+    background: linear-gradient(0deg, var(--darkerGradientPoint), 45%, rgba(17, 24, 39, 0.6));
 }
 
 .layout-mobile .withSectionTabs .backgroundContainer.withBackdrop {
@@ -3389,10 +3409,13 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .upNextDialog-title {
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
     max-width: 100%;
+    line-height: 1.3;
 }
 
 .upNextDialog-buttons {
@@ -3438,9 +3461,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .upNextContainer {
     background: var(--headerColor) !important;
     backdrop-filter: var(--blurDefault);
-}
-
-.upNextContainer {
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -4202,6 +4222,12 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 
 .skinHeader-withBackground.osdHeader {
     background: rgba(0, 0, 0, 0.85) !important;
+}
+
+/* TV: reduce OSD header height — avoid oversized black bar */
+.layout-tv .osdHeader .headerTop {
+    max-height: 3.5em;
+    padding: 0 0.5em;
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {

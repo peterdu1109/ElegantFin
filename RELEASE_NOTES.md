@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.0
+# ElegantFin Cinema Edition v1.2.1
 
 ## [English](#english) | [Francais](#francais)
 
@@ -74,6 +74,17 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Reactive slider** — Expands to `0.5em` on hover, white thumb with `border-radius: 2px`, glow on progress bar
 - **Firefox slider** — Full `::-moz-range-thumb` styling matching WebKit (size, border, radius, transitions)
 - **Skip button** — Bold (700), `letter-spacing: 0.03em`, `scale(1.03)` on hover
+
+---
+
+#### v1.2.1 — Visual & Compatibility Fixes
+
+- **Backdrop extended** — Mask extended from 45% to 65%, opacity raised from 0.55 to 0.65 — image visible further down the detail page (PC)
+- **TV backdrop** — Reduced darkness from 0.95 to 0.6 — backdrop was nearly invisible on TV
+- **upNext title** — Replaced `nowrap` with `line-clamp: 2` — long episode titles no longer truncated (all platforms)
+- **OSD header TV** — Allows 2-line titles, reduced header height to 3.5em — fixes oversized black bar
+- **OSD title mobile** — `line-clamp: 2` with wider max-width for long titles
+- **Card hover** — Removed double zoom (1.06 x 1.04 = 1.10) — now single clean 1.06x pop
 
 ---
 
@@ -154,6 +165,17 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Slider reactif** — S'agrandit a `0.5em` au survol, pouce blanc avec `border-radius: 2px`, lueur sur la barre de progression
 - **Slider Firefox** — Stylisation complete `::-moz-range-thumb` identique a WebKit (taille, bordure, radius, transitions)
 - **Bouton skip** — Gras (700), `letter-spacing: 0.03em`, `scale(1.03)` au survol
+
+---
+
+#### v1.2.1 — Corrections visuelles & compatibilite
+
+- **Backdrop etendu** — Masque etendu de 45% a 65%, opacite augmentee de 0.55 a 0.65 — image visible plus bas sur la page detail (PC)
+- **Backdrop TV** — Obscurite reduite de 0.95 a 0.6 — le backdrop etait quasi invisible sur TV
+- **Titre upNext** — `nowrap` remplace par `line-clamp: 2` — les longs titres d'episodes ne sont plus tronques (toutes plateformes)
+- **Header OSD TV** — Titres sur 2 lignes autorises, hauteur reduite a 3.5em — corrige la barre noire surdimensionnee
+- **Titre OSD mobile** — `line-clamp: 2` avec largeur max elargie pour les longs titres
+- **Hover cartes** — Double zoom supprime (1.06 x 1.04 = 1.10) — maintenant un seul pop propre a 1.06x
 
 ---
 

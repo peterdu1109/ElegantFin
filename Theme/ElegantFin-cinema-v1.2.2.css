@@ -1,5 +1,5 @@
 /* ElegantFin Cinema Edition v1.2.2 — Based on ElegantFin v26.04.07 */
-/* Enhanced with 20 cinematic modules — Netflix-inspired streaming experience */
+/* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
 
 /* Add-ons: Uncomment to enable */
 /* @import url(./assets/add-ons/media-bar-plugin-support-nightly.css); */
@@ -205,6 +205,8 @@ html {
     font-weight: 425;
     font-style: normal;
     -webkit-tap-highlight-color: transparent !important;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
 }
 
 body {
@@ -287,11 +289,6 @@ body {
 }
 
 /* Scrollbars — Cross-browser */
-html {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-}
-
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
@@ -1181,6 +1178,7 @@ html {
 .headerLeft .pageTitle {
     display: -webkit-box;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-weight: 500;
@@ -2428,7 +2426,7 @@ progress + span {
 }
 
 .overflowBackdropCard .cardText-first + .itemSelectionPanel > .checkboxContainer {
-    height: calc(100% - 0em);
+    height: 100%;
 }
 
 .checkboxContainer .emby-checkbox:checked + span + .checkboxOutline.multiSelectCheckboxOutline {
@@ -2456,7 +2454,7 @@ progress + span {
 
 .cardFooter + .itemSelectionPanel > .checkboxContainer,
 .cardScalable + .itemSelectionPanel > .checkboxContainer {
-    height: calc(100% - 0em);
+    height: 100%;
 }
 
 .checkboxOutline.multiSelectCheckboxOutline {
@@ -2952,7 +2950,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 .actionsheetDivider {
     height: 2px;
-    background: rgb(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .actionsheet-xlargeFont {
@@ -4019,13 +4017,13 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 .startTimeText,
 .positionTime {
     text-align: start;
-    justify-content: left;
+    justify-content: flex-start;
 }
 
 .endTimeText,
 .runtime {
     text-align: end;
-    justify-content: right;
+    justify-content: flex-end;
 }
 
 .filterIndicator {
@@ -4176,7 +4174,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     font-weight: 600;
     list-style-type: circle;
     margin-bottom: 0.5em;
-    font-family: "Math", serif;
+    font-family: "Inter", sans-serif;
 }
 
 .MuiTabs-indicator {
@@ -4583,7 +4581,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 .nowPlayingBar .nowPlayingBarCenter { overflow: hidden; }
 
 /* ============================================================
-   CINEMA FEATURES v1.2.0
+   CINEMA FEATURES v1.2.2
    ============================================================ */
 
 /* --- 1. Skeleton Loading Placeholders --- */

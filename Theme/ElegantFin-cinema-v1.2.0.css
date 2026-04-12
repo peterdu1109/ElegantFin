@@ -449,7 +449,7 @@ html {
 }
 
 .card-hoverable:hover .cardImageContainer {
-    transform: scale(1.04);
+    transform: none;
 }
 
 .card-hoverable .itemSelectionPanel {

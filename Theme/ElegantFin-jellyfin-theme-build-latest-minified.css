@@ -1,3 +1,14 @@
+body::after {
+    content: "LE CSS EST BIEN LU PAR JELLYFIN";
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: yellow;
+    color: black;
+    z-index: 9999;
+    padding: 10px;
+}
+
 /* ElegantFin Cinema Edition v1.2.2 — Based on ElegantFin v26.04.07 */
 /* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
 

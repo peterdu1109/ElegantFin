@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.3
+# ElegantFin Cinema Edition v1.2.4
 
 ## [English](#english) | [Francais](#francais)
 
@@ -104,6 +104,16 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Next Up word-break** — Long titles now break cleanly with `word-break: break-word`
 - **Next Up TV/Mobile** — TV: max 35em wide, 70vh tall with padding. Mobile: 90vw wide, 75vh tall
 - **CSS audit fixes** — `justify-content: left/right` → `flex-start/flex-end` (invalid CSS), `rgb()` → `rgba()`, merged duplicate `html {}` blocks, added standard `line-clamp`, removed `calc(100% - 0em)`, fixed non-existent font, updated module count to 29
+
+---
+
+#### v1.2.4 — Next Up Dialog Polish
+
+- **Wider container** — Added `min-width: 28em` so the dialog is never too narrow for long titles and buttons
+- **3-line title** — `line-clamp` increased from 2 to 3 — long anime/episode titles now display fully
+- **Buttons contained** — `width: 100%` on button row ensures they never overflow the container
+- **No horizontal overflow** — `overflow-x: hidden` prevents content from escaping sideways
+- **Mobile reset** — `min-width: unset` on mobile to avoid forcing a wide container on small screens
 
 ---
 
@@ -214,6 +224,16 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Retour a la ligne Next Up** — Les longs titres coupent proprement avec `word-break: break-word`
 - **Next Up TV/Mobile** — TV : max 35em large, 70vh haut avec padding. Mobile : 90vw large, 75vh haut
 - **Corrections audit CSS** — `justify-content: left/right` → `flex-start/flex-end` (CSS invalide), `rgb()` → `rgba()`, fusion des blocs `html {}` dupliques, ajout `line-clamp` standard, suppression `calc(100% - 0em)`, correction police inexistante, compteur modules mis a jour a 29
+
+---
+
+#### v1.2.4 — Finition dialogue Next Up
+
+- **Conteneur plus large** — Ajout `min-width: 28em` pour que le dialogue ne soit jamais trop etroit pour les longs titres et boutons
+- **Titre sur 3 lignes** — `line-clamp` augmente de 2 a 3 — les longs titres d'anime/episodes s'affichent completement
+- **Boutons contenus** — `width: 100%` sur la rangee de boutons pour qu'ils ne debordent jamais du conteneur
+- **Pas de debordement horizontal** — `overflow-x: hidden` empeche le contenu de sortir sur les cotes
+- **Reset mobile** — `min-width: unset` sur mobile pour eviter de forcer un conteneur large sur petit ecran
 
 ---
 

@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.3 */
+/* ElegantFin Cinema Edition v1.2.4 */
 /* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.3";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.4";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -3394,9 +3394,11 @@ div[data-role="controlgroup"] a.ui-btn-active {
 [dir="ltr"] .upNextContainer {
     margin: 2em;
     box-sizing: border-box;
+    min-width: 28em;
     max-width: 80vw;
     max-height: 80vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .upNextContainer .btnStartNow {
@@ -3407,8 +3409,8 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .upNextDialog-title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     overflow: hidden;
     max-width: 100%;
     line-height: 1.3;
@@ -3416,9 +3418,10 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .upNextDialog-buttons {
-    width: unset;
+    width: 100%;
     flex-wrap: wrap;
     flex-shrink: 0;
+    box-sizing: border-box;
 }
 
 /* TV — upNext dialog sizing */
@@ -3435,9 +3438,11 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 /* Mobile — upNext dialog sizing */
 .layout-mobile .upNextContainer {
+    min-width: unset;
     max-width: 90vw;
     max-height: 75vh;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .upNextContainer .upNextDialog-countdownText {

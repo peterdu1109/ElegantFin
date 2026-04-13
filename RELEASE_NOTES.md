@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.4
+# ElegantFin Cinema Edition v1.2.5
 
 ## [English](#english) | [Francais](#francais)
 
@@ -114,6 +114,13 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Buttons contained** — `width: 100%` on button row ensures they never overflow the container
 - **No horizontal overflow** — `overflow-x: hidden` prevents content from escaping sideways
 - **Mobile reset** — `min-width: unset` on mobile to avoid forcing a wide container on small screens
+
+---
+
+#### v1.2.5 — Next Up Title Wrap Fix
+
+- **Root cause fixed** — Jellyfin default has `white-space: nowrap` + `width: 25.5em` + `text-overflow: ellipsis` on `.upNextDialog-title`, which forced single-line truncation. Overridden with `!important` to allow multi-line display
+- **Title now wraps** — `white-space: normal`, `width: auto`, `text-overflow: unset` combined with `line-clamp: 3` — long anime titles display on up to 3 lines
 
 ---
 
@@ -234,6 +241,13 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Boutons contenus** — `width: 100%` sur la rangee de boutons pour qu'ils ne debordent jamais du conteneur
 - **Pas de debordement horizontal** — `overflow-x: hidden` empeche le contenu de sortir sur les cotes
 - **Reset mobile** — `min-width: unset` sur mobile pour eviter de forcer un conteneur large sur petit ecran
+
+---
+
+#### v1.2.5 — Correctif retour a la ligne Next Up
+
+- **Cause racine corrigee** — Le CSS par defaut de Jellyfin a `white-space: nowrap` + `width: 25.5em` + `text-overflow: ellipsis` sur `.upNextDialog-title`, forcant la troncature sur une seule ligne. Override avec `!important` pour permettre l'affichage multi-lignes
+- **Le titre retourne a la ligne** — `white-space: normal`, `width: auto`, `text-overflow: unset` combines avec `line-clamp: 3` — les longs titres d'anime s'affichent sur jusqu'a 3 lignes
 
 ---
 

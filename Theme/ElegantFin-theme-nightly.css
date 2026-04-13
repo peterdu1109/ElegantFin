@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.4 */
+/* ElegantFin Cinema Edition v1.2.5 */
 /* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.4";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.5";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -3407,11 +3407,14 @@ div[data-role="controlgroup"] a.ui-btn-active {
 }
 
 .upNextDialog-title {
-    display: -webkit-box;
+    display: -webkit-box !important;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-clamp: 3;
     overflow: hidden;
+    white-space: normal !important;
+    text-overflow: unset !important;
+    width: auto !important;
     max-width: 100%;
     line-height: 1.3;
     word-break: break-word;

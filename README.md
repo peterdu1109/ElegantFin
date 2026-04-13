@@ -7,7 +7,7 @@
 
 **A cinematic fork of [ElegantFin](https://github.com/lscambo13/ElegantFin) — Netflix-inspired Jellyfin theme**
 
-[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.4-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
+[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.5-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
 [![Based on](https://img.shields.io/badge/Based%20on-ElegantFin%20v26.04.07-blue?style=flat&logo=github)](https://github.com/lscambo13/ElegantFin)
 [![Jellyfin](https://img.shields.io/badge/Jellyfin-10.11.x-00A4DC?style=flat&logo=jellyfin&logoColor=white)](https://jellyfin.org)
 [![Platform](https://img.shields.io/badge/Platform-Desktop%20%7C%20Mobile%20%7C%20TV-green?style=flat)]()

@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.2
+# ElegantFin Cinema Edition v1.2.3
 
 ## [English](#english) | [Francais](#francais)
 
@@ -7,7 +7,7 @@
 <a name="english"></a>
 ## English
 
-### Cinema Edition — 28 cinematic modules on top of ElegantFin v26.04.07
+### Cinema Edition — 29 cinematic modules on top of ElegantFin v26.04.07
 
 This release transforms the ElegantFin theme into a professional, Netflix-inspired streaming experience while keeping full compatibility with desktop, mobile, and TV platforms.
 
@@ -97,6 +97,16 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 ---
 
+#### v1.2.3 — CSS Quality & Next Up Fix
+
+- **Next Up dialog overflow** — Added `max-height` + `overflow-y: auto` so content scrolls instead of escaping the container
+- **Next Up buttons always visible** — `flex-shrink: 0` prevents buttons from being pushed out of view
+- **Next Up word-break** — Long titles now break cleanly with `word-break: break-word`
+- **Next Up TV/Mobile** — TV: max 35em wide, 70vh tall with padding. Mobile: 90vw wide, 75vh tall
+- **CSS audit fixes** — `justify-content: left/right` → `flex-start/flex-end` (invalid CSS), `rgb()` → `rgba()`, merged duplicate `html {}` blocks, added standard `line-clamp`, removed `calc(100% - 0em)`, fixed non-existent font, updated module count to 29
+
+---
+
 ### Compatibility
 - Jellyfin **10.11.x**
 - Works on all web browsers (Chrome, Edge, Firefox, Safari), Android app, LG WebOS, Samsung Tizen
@@ -107,7 +117,7 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 <a name="francais"></a>
 ## Francais
 
-### Edition Cinema — 28 modules cinematiques par-dessus ElegantFin v26.04.07
+### Edition Cinema — 29 modules cinematiques par-dessus ElegantFin v26.04.07
 
 Cette version transforme le theme ElegantFin en une experience de streaming professionnelle inspiree de Netflix, tout en gardant la compatibilite complete avec bureau, mobile et TV.
 
@@ -194,6 +204,16 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Slides pleine largeur** — Le carrousel Splide affiche maintenant un slide a la fois (`min-width: 100%`) au lieu de couper plusieurs slides
 - **Boutons Cinema** — Les boutons du plugin (`.button-submit`, `.emby-button.raised`) sont maintenant styles avec effet verre, texte blanc et levitation au survol, en accord avec le theme Cinema
 - **Desactivation TV** — Tous les blur, ombres et animations Editor's Choice desactives sur layout TV
+
+---
+
+#### v1.2.3 — Qualite CSS & Correctif Next Up
+
+- **Debordement Next Up** — Ajout `max-height` + `overflow-y: auto` pour que le contenu defile au lieu de sortir du cadre
+- **Boutons Next Up toujours visibles** — `flex-shrink: 0` empeche les boutons d'etre pousses hors de la vue
+- **Retour a la ligne Next Up** — Les longs titres coupent proprement avec `word-break: break-word`
+- **Next Up TV/Mobile** — TV : max 35em large, 70vh haut avec padding. Mobile : 90vw large, 75vh haut
+- **Corrections audit CSS** — `justify-content: left/right` → `flex-start/flex-end` (CSS invalide), `rgb()` → `rgba()`, fusion des blocs `html {}` dupliques, ajout `line-clamp` standard, suppression `calc(100% - 0em)`, correction police inexistante, compteur modules mis a jour a 29
 
 ---
 

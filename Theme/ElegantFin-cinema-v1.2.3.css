@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.2 */
+/* ElegantFin Cinema Edition v1.2.3 */
 /* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.2";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.3";
 
     /* Base theme colors */
     color-scheme: dark;

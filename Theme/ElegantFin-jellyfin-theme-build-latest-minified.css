@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.7 */
+/* ElegantFin Cinema Edition v1.2.8 */
 /* Enhanced with 28 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.7";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.8";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4328,7 +4328,8 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 .osdHeader .headerTop {
-    max-height: var(--appBarHeight);
+    height: 3em;
+    max-height: 3em;
 }
 
 .layout-desktop .headerTop {

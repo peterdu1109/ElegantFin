@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.7
+# ElegantFin Cinema Edition v1.2.8
 
 ## [English](#english) | [Francais](#francais)
 
@@ -140,6 +140,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Removed permanent `will-change`** — Shimmer `::before` no longer declares `will-change: transform`
 - **Fixed stale version comments** — Updated section comment references
 - **Updated module count** — 29 → 28 across CSS, README, and RELEASE_NOTES
+
+---
+
+#### v1.2.8 — OSD Header Height Fix
+
+- **OSD header reduced** — Video player header was using `--appBarHeight` (5em), now fixed to `3em` for all platforms — no more oversized black bar during playback
 
 ---
 
@@ -286,6 +292,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Retrait `will-change` permanent** — Shimmer `::before` ne declare plus `will-change: transform`
 - **Correction commentaires obsoletes** — Mise a jour des references de version dans les commentaires
 - **Compteur modules mis a jour** — 29 → 28 dans CSS, README et RELEASE_NOTES
+
+---
+
+#### v1.2.8 — Correction hauteur header OSD
+
+- **Header OSD reduit** — Le header du lecteur video utilisait `--appBarHeight` (5em), maintenant fixe a `3em` sur toutes les plateformes — plus de barre noire surdimensionnee pendant la lecture
 
 ---
 

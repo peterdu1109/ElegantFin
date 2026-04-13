@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.6
+# ElegantFin Cinema Edition v1.2.7
 
 ## [English](#english) | [Francais](#francais)
 
@@ -7,7 +7,7 @@
 <a name="english"></a>
 ## English
 
-### Cinema Edition — 29 cinematic modules on top of ElegantFin v26.04.07
+### Cinema Edition — 28 cinematic modules on top of ElegantFin v26.04.07
 
 This release transforms the ElegantFin theme into a professional, Netflix-inspired streaming experience while keeping full compatibility with desktop, mobile, and TV platforms.
 
@@ -132,6 +132,17 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 ---
 
+#### v1.2.7 — Cleanup & CSS Quality
+
+- **Removed Editor's Choice Cinema** — Plugin styling removed (28 modules)
+- **Added standard `line-clamp`** — Missing on `.detail-clamp-text` (desktop/mobile/TV) and `.listItem-overview`
+- **Fixed `justify-content: right`** — Last remaining invalid value on `.endTimeText` → `flex-end`
+- **Removed permanent `will-change`** — Shimmer `::before` no longer declares `will-change: transform`
+- **Fixed stale version comments** — Updated section comment references
+- **Updated module count** — 29 → 28 across CSS, README, and RELEASE_NOTES
+
+---
+
 ### Compatibility
 - Jellyfin **10.11.x**
 - Works on all web browsers (Chrome, Edge, Firefox, Safari), Android app, LG WebOS, Samsung Tizen
@@ -142,7 +153,7 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 <a name="francais"></a>
 ## Francais
 
-### Edition Cinema — 29 modules cinematiques par-dessus ElegantFin v26.04.07
+### Edition Cinema — 28 modules cinematiques par-dessus ElegantFin v26.04.07
 
 Cette version transforme le theme ElegantFin en une experience de streaming professionnelle inspiree de Netflix, tout en gardant la compatibilite complete avec bureau, mobile et TV.
 
@@ -264,6 +275,17 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Largeur conteneur upNext** — Jellyfin force `width: 30em` fixe ; surcharge avec `width: auto` pour que `min-width`/`max-width` fonctionnent correctement
 - **Largeur boutons upNext** — Jellyfin force `width: 29.75em` fixe ; surcharge avec `width: 100%` pour remplir le conteneur
 - **Support RTL** — Ajout `[dir="rtl"] .upNextContainer` margin pour les langues de droite a gauche
+
+---
+
+#### v1.2.7 — Nettoyage & Qualite CSS
+
+- **Retrait Editor's Choice Cinema** — Style du plugin retire (28 modules)
+- **Ajout `line-clamp` standard** — Manquant sur `.detail-clamp-text` (bureau/mobile/TV) et `.listItem-overview`
+- **Correction `justify-content: right`** — Derniere valeur invalide sur `.endTimeText` → `flex-end`
+- **Retrait `will-change` permanent** — Shimmer `::before` ne declare plus `will-change: transform`
+- **Correction commentaires obsoletes** — Mise a jour des references de version dans les commentaires
+- **Compteur modules mis a jour** — 29 → 28 dans CSS, README et RELEASE_NOTES
 
 ---
 

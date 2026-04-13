@@ -7,7 +7,7 @@
 
 **A cinematic fork of [ElegantFin](https://github.com/lscambo13/ElegantFin) — Netflix-inspired Jellyfin theme**
 
-[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.6-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
+[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.7-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
 [![Based on](https://img.shields.io/badge/Based%20on-ElegantFin%20v26.04.07-blue?style=flat&logo=github)](https://github.com/lscambo13/ElegantFin)
 [![Jellyfin](https://img.shields.io/badge/Jellyfin-10.11.x-00A4DC?style=flat&logo=jellyfin&logoColor=white)](https://jellyfin.org)
 [![Platform](https://img.shields.io/badge/Platform-Desktop%20%7C%20Mobile%20%7C%20TV-green?style=flat)]()
@@ -26,7 +26,7 @@
 
 ### What is this?
 
-This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **29 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
+This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **28 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
 
 Everything works on **desktop, mobile and TV** with a single CSS import.
 
@@ -64,7 +64,6 @@ Everything works on **desktop, mobile and TV** with a single CSS import.
 | **Watched Overlay** | Subtle dark overlay on already-watched items |
 | **Sidebar Glass** | Enhanced sidebar with glass effect, styled nav items |
 | **Scroll-to-Top Glass** | Glass-effect scroll-to-top button with hover lift |
-| **Editor's Choice Cinema** | Cinematic styling for the Editor's Choice plugin (gradient overlay, glass buttons, zoom backdrop) |
 
 ---
 
@@ -194,7 +193,6 @@ Tout fonctionne sur **bureau, mobile et TV** avec un seul import CSS.
 | **Overlay vu** | Overlay sombre subtil sur les elements deja vus |
 | **Sidebar verre** | Sidebar amelioree avec effet verre et navigation stylee |
 | **Scroll-to-Top verre** | Bouton retour en haut avec effet verre et levitation |
-| **Editor's Choice Cinema** | Style cinematique pour le plugin Editor's Choice (degrade, boutons verre, zoom backdrop) |
 
 ---
 

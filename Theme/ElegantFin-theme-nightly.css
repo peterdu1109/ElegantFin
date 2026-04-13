@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.6 */
-/* Enhanced with 29 cinematic modules — Netflix-inspired streaming experience */
+/* ElegantFin Cinema Edition v1.2.7 */
+/* Enhanced with 28 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.6";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.7";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -543,7 +543,6 @@ body {
     animation: shimmer 8s infinite;
     z-index: 1;
     pointer-events: none;
-    will-change: transform;
 }
 
 @keyframes shimmer {
@@ -2195,16 +2194,19 @@ progress + span {
 
 .layout-desktop .detail-clamp-text {
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     font-size: 0.95em;
     color: var(--dimTextColor);
 }
 
 .layout-mobile .detail-clamp-text {
     -webkit-line-clamp: 4;
+    line-clamp: 4;
 }
 
 .layout-tv .detail-clamp-text {
     -webkit-line-clamp: 10;
+    line-clamp: 10;
     transition: none;
 }
 
@@ -2894,6 +2896,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .listItem-overview {
     display: -webkit-box;
     -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -4037,7 +4040,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 .endTimeText {
-    justify-content: right;
+    justify-content: flex-end;
     padding-inline-end: 0.8em;
     margin: 0 0 0 0.75em !important;
 }
@@ -4876,7 +4879,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 /* ============================================================
-   FIN CINEMA FEATURES v1.2.0
+   FIN CINEMA FEATURES
    ============================================================ */
 
 /* basic styling for the Media Bar Plugin - start

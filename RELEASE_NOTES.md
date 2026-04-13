@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.5
+# ElegantFin Cinema Edition v1.2.6
 
 ## [English](#english) | [Francais](#francais)
 
@@ -121,6 +121,14 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 - **Root cause fixed** — Jellyfin default has `white-space: nowrap` + `width: 25.5em` + `text-overflow: ellipsis` on `.upNextDialog-title`, which forced single-line truncation. Overridden with `!important` to allow multi-line display
 - **Title now wraps** — `white-space: normal`, `width: auto`, `text-overflow: unset` combined with `line-clamp: 3` — long anime titles display on up to 3 lines
+
+---
+
+#### v1.2.6 — Jellyfin Default CSS Overrides
+
+- **upNext container width** — Jellyfin forces `width: 30em` fixed; overridden with `width: auto` so `min-width`/`max-width` work correctly
+- **upNext buttons width** — Jellyfin forces `width: 29.75em` fixed; overridden with `width: 100%` to fill container
+- **RTL support** — Added `[dir="rtl"] .upNextContainer` margin for right-to-left languages
 
 ---
 
@@ -248,6 +256,14 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 
 - **Cause racine corrigee** — Le CSS par defaut de Jellyfin a `white-space: nowrap` + `width: 25.5em` + `text-overflow: ellipsis` sur `.upNextDialog-title`, forcant la troncature sur une seule ligne. Override avec `!important` pour permettre l'affichage multi-lignes
 - **Le titre retourne a la ligne** — `white-space: normal`, `width: auto`, `text-overflow: unset` combines avec `line-clamp: 3` — les longs titres d'anime s'affichent sur jusqu'a 3 lignes
+
+---
+
+#### v1.2.6 — Surcharges CSS par defaut de Jellyfin
+
+- **Largeur conteneur upNext** — Jellyfin force `width: 30em` fixe ; surcharge avec `width: auto` pour que `min-width`/`max-width` fonctionnent correctement
+- **Largeur boutons upNext** — Jellyfin force `width: 29.75em` fixe ; surcharge avec `width: 100%` pour remplir le conteneur
+- **Support RTL** — Ajout `[dir="rtl"] .upNextContainer` margin pour les langues de droite a gauche
 
 ---
 

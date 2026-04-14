@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.9 */
+/* ElegantFin Cinema Edition v1.2.10 */
 /* Enhanced with 28 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.9";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.10";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -3387,17 +3387,24 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 .toast {
     border-radius: var(--smallRadius);
+    background: var(--headerColor) !important;
+    backdrop-filter: var(--blurDefault);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .upNextContainer {
     border-radius: var(--largeRadius);
     color: var(--textColor);
     width: auto !important;
-    min-width: 28em;
-    max-width: 80vw;
-    max-height: 80vh;
+    min-width: 28em !important;
+    max-width: 80vw !important;
+    max-height: 80vh !important;
     overflow-y: auto;
     overflow-x: hidden;
+    background: var(--headerColor) !important;
+    backdrop-filter: var(--blurDefault);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 [dir="ltr"] .upNextContainer {
@@ -3481,33 +3488,25 @@ div[data-role="controlgroup"] a.ui-btn-active {
     margin-left: var(--sidePadding);
 }
 
-.skip-button:hover {
-    background-color: white;
-    transform: scale(1.03);
-}
-
 .skip-button:active {
     background-color: rgba(245, 245, 245, 0.7);
     box-shadow: none;
 }
 
-.toast,
-.upNextContainer {
-    background: var(--headerColor) !important;
-    backdrop-filter: var(--blurDefault);
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
+/* Hover states — scoped to pointer devices only (TV has no cursor) */
+@media (hover: hover) and (pointer: fine) {
+    .skip-button:hover {
+        background-color: white;
+        transform: scale(1.03);
+    }
 
-.toast {
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    .emby-tab-button:hover {
+        color: whitesmoke;
+    }
 }
 
 .activeSession {
     width: 98% !important;
-}
-
-.emby-tab-button:hover {
-    color: whitesmoke;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -4236,9 +4235,11 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     color: white;
 }
 
-.MuiButtonBase-root.MuiIconButton-root:hover {
-    color: white;
-    background-color: transparent;
+@media (hover: hover) and (pointer: fine) {
+    .MuiButtonBase-root.MuiIconButton-root:hover {
+        color: white;
+        background-color: transparent;
+    }
 }
 
 #viewPanel .ui-panel-inner {

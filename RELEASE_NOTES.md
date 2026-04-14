@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.9
+# ElegantFin Cinema Edition v1.2.10
 
 ## [English](#english) | [Francais](#francais)
 
@@ -154,6 +154,14 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **OSD header forced to 2.75em** — Previous 3em rule was overridden by Jellyfin defaults. Now uses `!important` on both `.osdHeader` container and `.headerTop`
 - **OSD buttons sized down** — Header buttons reduced to 2.5em to match the shorter bar
 - **TV OSD at 3em** — Slightly taller on TV for remote visibility, still much smaller than default 5em
+
+---
+
+#### v1.2.10 — CSS hardening & TV hover fixes
+
+- **`.upNextContainer` sizing forced** — Added `!important` on `min-width`, `max-width`, `max-height` to prevent Jellyfin defaults from overriding
+- **Merged duplicate selectors** — `.toast` was defined 3 times, `.upNextContainer` was defined 2 times — consolidated into single blocks
+- **TV hover protection** — Moved `.skip-button:hover`, `.emby-tab-button:hover`, `.MuiButtonBase-root:hover` inside `@media (hover: hover) and (pointer: fine)` so TV remotes don't trigger accidental hover states
 
 ---
 
@@ -314,6 +322,14 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Header OSD force a 2.75em** — La regle 3em de v1.2.8 etait surchargee par les defauts Jellyfin. Utilise maintenant `!important` sur `.osdHeader` ET `.headerTop`
 - **Boutons OSD reduits** — Boutons du header passes a 2.5em pour s'aligner avec la barre plus courte
 - **TV OSD a 3em** — Legerement plus grand sur TV pour la visibilite telecommande, mais toujours bien plus petit que les 5em par defaut
+
+---
+
+#### v1.2.10 — Durcissement CSS & corrections hover TV
+
+- **Tailles `.upNextContainer` forcees** — Ajout de `!important` sur `min-width`, `max-width`, `max-height` pour eviter l'override par les defauts Jellyfin
+- **Fusion des selecteurs dupliques** — `.toast` etait defini 3 fois, `.upNextContainer` 2 fois — consolidation en un seul bloc par selecteur
+- **Protection hover TV** — Deplacement de `.skip-button:hover`, `.emby-tab-button:hover`, `.MuiButtonBase-root:hover` dans `@media (hover: hover) and (pointer: fine)` pour eviter les etats hover accidentels avec les telecommandes
 
 ---
 

@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.8 */
+/* ElegantFin Cinema Edition v1.2.9 */
 /* Enhanced with 28 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.8";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.9";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4259,9 +4259,16 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 /* TV: reduce OSD header height — avoid oversized black bar */
+.layout-tv .osdHeader,
+.layout-tv .skinHeader.osdHeader {
+    min-height: 3em !important;
+    height: 3em !important;
+}
+
 .layout-tv .osdHeader .headerTop {
-    max-height: 3.5em;
-    padding: 0 0.5em;
+    height: 3em !important;
+    max-height: 3em !important;
+    padding: 0 0.5em !important;
 }
 
 @supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
@@ -4327,9 +4334,33 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     height: var(--appBarHeight);
 }
 
-.osdHeader .headerTop {
-    height: 3em;
-    max-height: 3em;
+/* Reduce OSD header height during playback (default is 5em — too tall) */
+.osdHeader,
+.skinHeader.osdHeader {
+    min-height: 2.75em !important;
+    height: 2.75em !important;
+}
+
+.osdHeader .headerTop,
+.skinHeader.osdHeader .headerTop {
+    height: 2.75em !important;
+    min-height: 2.75em !important;
+    max-height: 2.75em !important;
+    padding: 0 0.5em !important;
+}
+
+.osdHeader .headerButton,
+.skinHeader.osdHeader .headerButton {
+    height: 2.5em !important;
+    width: 2.5em !important;
+    padding: 0.3em !important;
+}
+
+.osdHeader .pageTitle,
+.skinHeader.osdHeader .pageTitle {
+    font-size: 1.1em !important;
+    line-height: 2.75em !important;
+    margin: 0 0.5em !important;
 }
 
 .layout-desktop .headerTop {

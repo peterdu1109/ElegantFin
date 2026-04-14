@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.8
+# ElegantFin Cinema Edition v1.2.9
 
 ## [English](#english) | [Francais](#francais)
 
@@ -146,6 +146,14 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.8 — OSD Header Height Fix
 
 - **OSD header reduced** — Video player header was using `--appBarHeight` (5em), now fixed to `3em` for all platforms — no more oversized black bar during playback
+
+---
+
+#### v1.2.9 — OSD Header Height Fix (stronger overrides)
+
+- **OSD header forced to 2.75em** — Previous 3em rule was overridden by Jellyfin defaults. Now uses `!important` on both `.osdHeader` container and `.headerTop`
+- **OSD buttons sized down** — Header buttons reduced to 2.5em to match the shorter bar
+- **TV OSD at 3em** — Slightly taller on TV for remote visibility, still much smaller than default 5em
 
 ---
 
@@ -298,6 +306,14 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.8 — Correction hauteur header OSD
 
 - **Header OSD reduit** — Le header du lecteur video utilisait `--appBarHeight` (5em), maintenant fixe a `3em` sur toutes les plateformes — plus de barre noire surdimensionnee pendant la lecture
+
+---
+
+#### v1.2.9 — Correction hauteur header OSD (overrides renforces)
+
+- **Header OSD force a 2.75em** — La regle 3em de v1.2.8 etait surchargee par les defauts Jellyfin. Utilise maintenant `!important` sur `.osdHeader` ET `.headerTop`
+- **Boutons OSD reduits** — Boutons du header passes a 2.5em pour s'aligner avec la barre plus courte
+- **TV OSD a 3em** — Legerement plus grand sur TV pour la visibilite telecommande, mais toujours bien plus petit que les 5em par defaut
 
 ---
 

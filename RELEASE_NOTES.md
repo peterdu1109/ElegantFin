@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.11
+# ElegantFin Cinema Edition v1.2.12
 
 ## [English](#english) | [Francais](#francais)
 
@@ -170,6 +170,15 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Removed color-coded Resolution Badges** — The 4K/HDR/Dolby Vision/Atmos coloring never actually worked in Jellyfin 10.11.x because badge text lives in `textContent` (not in a `title` attribute), and pure CSS cannot match inner text. Kept the generic badge styling (rounded border, padding, subtle border color).
 - **Module count: 28 → 27** — Documentation updated in README and CSS header
 - **README FR correction** — Fixed stale "29 modules" reference that was already outdated
+
+---
+
+#### v1.2.12 — Language-neutral selectors & dead code removal
+
+- **Favorite icon fill** — Replaced `.emby-button[title="Favorite"]` with `[is="emby-ratingbutton"]`. The previous selector only matched English Jellyfin; now the filled-heart animation works in **French, German, Spanish, etc.**
+- **Book "Play → Read" button** — Removed `[title="Play"]` qualifier so the Book-page label override works in all languages
+- **Scroll-to-Top module removed** — Jellyfin 10.11.x has no native `.btnScrollToTop` / `[data-action="scrolltotop"]` element. The 25 lines of CSS were styling nothing. Module count: 27 → 26.
+- **Editor's Choice negation simplified** — `.itemsContainer:not(.editorsChoiceItemsContainer)` → `.itemsContainer` (the excluded class no longer exists in Jellyfin, so the `:not()` was dead logic)
 
 ---
 
@@ -346,6 +355,15 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Couleurs des badges resolution supprimees** — Les couleurs 4K/HDR/Dolby Vision/Atmos ne fonctionnaient en realite jamais sur Jellyfin 10.11.x car le texte du badge est dans `textContent` (pas dans un attribut `title`), et le CSS pur ne peut pas matcher un texte interne. Style generique conserve (bordure arrondie, padding, bordure subtile).
 - **Compteur de modules : 28 → 27** — Documentation mise a jour dans README et en-tete CSS
 - **Correction README FR** — Reference obsolete "29 modules" corrigee
+
+---
+
+#### v1.2.12 — Selecteurs neutres a la langue & retrait code mort
+
+- **Icone favori remplie** — Remplacement de `.emby-button[title="Favorite"]` par `[is="emby-ratingbutton"]`. L'ancien selecteur ne matchait que Jellyfin en anglais ; l'animation du coeur rempli fonctionne maintenant en **francais, allemand, espagnol, etc.**
+- **Bouton livre "Play → Read"** — Retrait du qualificatif `[title="Play"]` pour que le label des livres fonctionne dans toutes les langues
+- **Module Scroll-to-Top retire** — Jellyfin 10.11.x n'a aucun element natif `.btnScrollToTop` / `[data-action="scrolltotop"]`. Les 25 lignes de CSS ne ciblaient rien. Compteur modules : 27 → 26.
+- **Negation Editor's Choice simplifiee** — `.itemsContainer:not(.editorsChoiceItemsContainer)` → `.itemsContainer` (la classe exclue n'existe plus dans Jellyfin, donc le `:not()` etait de la logique morte)
 
 ---
 

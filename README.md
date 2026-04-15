@@ -7,7 +7,7 @@
 
 **A cinematic fork of [ElegantFin](https://github.com/lscambo13/ElegantFin) — Netflix-inspired Jellyfin theme**
 
-[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.10-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
+[![Version](https://img.shields.io/badge/Cinema%20Edition-v1.2.11-red?style=flat&logo=github)](https://github.com/peterdu1109/ElegantFin/releases)
 [![Based on](https://img.shields.io/badge/Based%20on-ElegantFin%20v26.04.07-blue?style=flat&logo=github)](https://github.com/lscambo13/ElegantFin)
 [![Jellyfin](https://img.shields.io/badge/Jellyfin-10.11.x-00A4DC?style=flat&logo=jellyfin&logoColor=white)](https://jellyfin.org)
 [![Platform](https://img.shields.io/badge/Platform-Desktop%20%7C%20Mobile%20%7C%20TV-green?style=flat)]()
@@ -26,7 +26,7 @@
 
 ### What is this?
 
-This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **28 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
+This is a **Cinema Edition** of the ElegantFin theme by [lscambo13](https://github.com/lscambo13), enhanced with **27 cinematic modules** that transform your Jellyfin into a professional streaming experience inspired by Netflix, Disney+ and Apple TV+.
 
 Everything works on **desktop, mobile and TV** with a single CSS import.
 
@@ -59,7 +59,6 @@ Everything works on **desktop, mobile and TV** with a single CSS import.
 | **Skeleton Loading** | Animated pulse placeholder while card images load |
 | **Hover Preview Info** | Secondary text and gradient reveal on card hover (desktop) |
 | **Scroller Edge Fade** | Gradient edges on horizontal scroll rows for depth |
-| **Resolution Badges** | Color-coded 4K (gold), HDR (green), DV (purple), Atmos (cyan) |
 | **Now Playing Glass** | Glassmorphism on the Now Playing bar |
 | **Watched Overlay** | Subtle dark overlay on already-watched items |
 | **Sidebar Glass** | Enhanced sidebar with glass effect, styled nav items |
@@ -155,7 +154,7 @@ All original ElegantFin customization options are preserved. Add these overrides
 
 ### C'est quoi ?
 
-C'est une **Edition Cinema** du theme ElegantFin par [lscambo13](https://github.com/lscambo13), enrichie de **29 modules cinematiques** qui transforment votre Jellyfin en une experience de streaming professionnelle inspiree de Netflix, Disney+ et Apple TV+.
+C'est une **Edition Cinema** du theme ElegantFin par [lscambo13](https://github.com/lscambo13), enrichie de **27 modules cinematiques** qui transforment votre Jellyfin en une experience de streaming professionnelle inspiree de Netflix, Disney+ et Apple TV+.
 
 Tout fonctionne sur **bureau, mobile et TV** avec un seul import CSS.
 
@@ -188,7 +187,6 @@ Tout fonctionne sur **bureau, mobile et TV** avec un seul import CSS.
 | **Skeleton Loading** | Placeholder anime pendant le chargement des images |
 | **Info au survol** | Texte secondaire et degrade au survol des cartes (bureau) |
 | **Fondu bords scroller** | Degrades lateraux sur les listes horizontales |
-| **Badges Resolution** | 4K (dore), HDR (vert), Dolby Vision (violet), Atmos (cyan) |
 | **Now Playing verre** | Glassmorphism sur la barre de lecture en cours |
 | **Overlay vu** | Overlay sombre subtil sur les elements deja vus |
 | **Sidebar verre** | Sidebar amelioree avec effet verre et navigation stylee |

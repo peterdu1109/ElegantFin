@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.10 */
-/* Enhanced with 28 cinematic modules — Netflix-inspired streaming experience */
+/* ElegantFin Cinema Edition v1.2.11 */
+/* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.10";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.11";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4779,7 +4779,9 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* --- 5. Enhanced Resolution Badges (4K / HDR / DV) --- */
+/* --- 5. Media Info Badges (polished) --- */
+/* Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
+   because the text is in textContent, not in a title/data attribute. Generic styling only. */
 .mediaInfoItem:not(.endsAt) {
     border-radius: 0.3em;
     padding: 0.15em 0.5em;
@@ -4788,35 +4790,6 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     letter-spacing: 0.04em;
     border: 1px solid rgba(255, 255, 255, 0.15);
     transition: border-color 0.2s ease;
-}
-
-/* 4K / UHD — Gold */
-.mediaInfoItem[class*="2160"],
-.mediaInfoItem:not(.endsAt):where([title*="4K"], [title*="2160"]) {
-    color: rgb(255, 215, 100);
-    border-color: rgba(255, 215, 100, 0.35);
-    background: rgba(255, 215, 100, 0.08);
-}
-
-/* HDR — Green */
-.mediaInfoItem:not(.endsAt):where([title*="HDR"], [title*="hdr"]) {
-    color: rgb(74, 222, 128);
-    border-color: rgba(74, 222, 128, 0.35);
-    background: rgba(74, 222, 128, 0.08);
-}
-
-/* Dolby Vision — Purple */
-.mediaInfoItem:not(.endsAt):where([title*="Dolby Vision"], [title*="DV"], [title*="DOVI"]) {
-    color: rgb(192, 132, 252);
-    border-color: rgba(192, 132, 252, 0.35);
-    background: rgba(192, 132, 252, 0.08);
-}
-
-/* Atmos — Cyan */
-.mediaInfoItem:not(.endsAt):where([title*="Atmos"], [title*="atmos"]) {
-    color: rgb(103, 232, 249);
-    border-color: rgba(103, 232, 249, 0.35);
-    background: rgba(103, 232, 249, 0.08);
 }
 
 /* --- 6. Now Playing Bar Glassmorphism --- */

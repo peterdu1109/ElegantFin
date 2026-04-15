@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.10
+# ElegantFin Cinema Edition v1.2.11
 
 ## [English](#english) | [Francais](#francais)
 
@@ -162,6 +162,14 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **`.upNextContainer` sizing forced** — Added `!important` on `min-width`, `max-width`, `max-height` to prevent Jellyfin defaults from overriding
 - **Merged duplicate selectors** — `.toast` was defined 3 times, `.upNextContainer` was defined 2 times — consolidated into single blocks
 - **TV hover protection** — Moved `.skip-button:hover`, `.emby-tab-button:hover`, `.MuiButtonBase-root:hover` inside `@media (hover: hover) and (pointer: fine)` so TV remotes don't trigger accidental hover states
+
+---
+
+#### v1.2.11 — Honest cleanup: removed broken Resolution Badges colors
+
+- **Removed color-coded Resolution Badges** — The 4K/HDR/Dolby Vision/Atmos coloring never actually worked in Jellyfin 10.11.x because badge text lives in `textContent` (not in a `title` attribute), and pure CSS cannot match inner text. Kept the generic badge styling (rounded border, padding, subtle border color).
+- **Module count: 28 → 27** — Documentation updated in README and CSS header
+- **README FR correction** — Fixed stale "29 modules" reference that was already outdated
 
 ---
 
@@ -330,6 +338,14 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Tailles `.upNextContainer` forcees** — Ajout de `!important` sur `min-width`, `max-width`, `max-height` pour eviter l'override par les defauts Jellyfin
 - **Fusion des selecteurs dupliques** — `.toast` etait defini 3 fois, `.upNextContainer` 2 fois — consolidation en un seul bloc par selecteur
 - **Protection hover TV** — Deplacement de `.skip-button:hover`, `.emby-tab-button:hover`, `.MuiButtonBase-root:hover` dans `@media (hover: hover) and (pointer: fine)` pour eviter les etats hover accidentels avec les telecommandes
+
+---
+
+#### v1.2.11 — Nettoyage honnete : retrait des badges resolution colores
+
+- **Couleurs des badges resolution supprimees** — Les couleurs 4K/HDR/Dolby Vision/Atmos ne fonctionnaient en realite jamais sur Jellyfin 10.11.x car le texte du badge est dans `textContent` (pas dans un attribut `title`), et le CSS pur ne peut pas matcher un texte interne. Style generique conserve (bordure arrondie, padding, bordure subtile).
+- **Compteur de modules : 28 → 27** — Documentation mise a jour dans README et en-tete CSS
+- **Correction README FR** — Reference obsolete "29 modules" corrigee
 
 ---
 

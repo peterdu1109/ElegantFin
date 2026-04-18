@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.15
+# ElegantFin Cinema Edition v1.2.16
 
 ## [English](#english) | [Francais](#francais)
 
@@ -200,6 +200,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.15 — Next Up dialog: force long titles to wrap
 
 - **`.upNextContainer` max-width 80vw → 34em** — Previous 80vw made the popup huge on desktop (~1500px on 1920p screens), so long episode titles fit on one line. Constrained to 34em (~544px) so long titles naturally wrap to 2-3 lines as intended by the existing `line-clamp: 3` rule.
+
+---
+
+#### v1.2.16 — Next Up fix: proper TV & mobile overrides
+
+- **Mobile & TV `max-width` now use `!important`** — v1.2.15 introduced a regression: the new `34em !important` desktop rule was overriding mobile's `90vw` (popup overflowed on phones <544px wide) and TV's `35em` values. Added `!important` to all layout-specific overrides so each platform gets its correct sizing: **desktop 34em**, **TV 38em**, **mobile 90vw**.
 
 ---
 
@@ -406,6 +412,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.15 — Dialogue Next Up : longs titres forces a passer sur plusieurs lignes
 
 - **`.upNextContainer` max-width 80vw → 34em** — Les 80vw rendaient la popup enorme sur desktop (~1500px sur ecran 1920p), donc les longs titres d'episodes tenaient sur une ligne. Contrainte a 34em (~544px) pour que les longs titres passent naturellement sur 2-3 lignes comme prevu par la regle `line-clamp: 3` existante.
+
+---
+
+#### v1.2.16 — Correction Next Up : overrides TV et mobile
+
+- **`max-width` mobile & TV passe en `!important`** — La v1.2.15 a introduit une regression : le `34em !important` desktop ecrasait les valeurs `90vw` (mobile) et `35em` (TV) qui n'avaient pas `!important`. Sur telephone <544px de large, la popup debordait de l'ecran. Ajout de `!important` sur les overrides layout pour que chaque plateforme garde sa taille : **desktop 34em**, **TV 38em**, **mobile 90vw**.
 
 ---
 

@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.15 */
+/* ElegantFin Cinema Edition v1.2.16 */
 /* Enhanced with 26 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.15";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.16";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -3445,10 +3445,10 @@ div[data-role="controlgroup"] a.ui-btn-active {
     box-sizing: border-box;
 }
 
-/* TV — upNext dialog sizing */
+/* TV — upNext dialog sizing (explicit !important to override desktop 34em rule) */
 .layout-tv .upNextContainer {
-    max-width: 35em;
-    max-height: 70vh;
+    max-width: 38em !important;
+    max-height: 70vh !important;
     overflow-y: auto;
     padding: 1.5em;
 }
@@ -3457,11 +3457,11 @@ div[data-role="controlgroup"] a.ui-btn-active {
     font-size: 1.1em;
 }
 
-/* Mobile — upNext dialog sizing */
+/* Mobile — upNext dialog sizing (explicit !important to override desktop 34em rule) */
 .layout-mobile .upNextContainer {
-    min-width: unset;
-    max-width: 90vw;
-    max-height: 75vh;
+    min-width: unset !important;
+    max-width: 90vw !important;
+    max-height: 75vh !important;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -4763,7 +4763,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 /* --- 4. Media Info Badges (polished) --- */
-/* Note: Scroll-to-Top module removed in v1.2.15 — Jellyfin 10.11.x has no such native element */
+/* Note: Scroll-to-Top module removed in v1.2.16 — Jellyfin 10.11.x has no such native element */
 /* Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
    because the text is in textContent, not in a title/data attribute. Generic styling only. */
 .mediaInfoItem:not(.endsAt) {

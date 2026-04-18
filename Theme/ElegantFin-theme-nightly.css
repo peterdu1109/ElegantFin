@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.19 */
+/* ElegantFin Cinema Edition v1.2.20 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.19";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.20";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1114,10 +1114,6 @@ body {
     padding: 0 var(--sidePadding);
 }
 
-/* [dir=ltr] .detailPagePrimaryContent {
-    padding-right: 0;
-} */
-
 .layout-desktop .detailPagePrimaryContainer {
     background: transparent;
 }
@@ -1360,24 +1356,6 @@ body {
         opacity: 1;
     }
 }
-
-/* Theme video styling rolled back because jellyfin does not differentiate between the main video player and theme video playback nicely*/
-/* .videoPlayerContainer {
-    position: relative !important;
-    -webkit-mask: var(--themeVideoPlayerMask);
-    mask: var(--themeVideoPlayerMask);
-    height: 90vh;
-}
-
-.layout-mobile .videoPlayerContainer {
-    z-index: 1;
-    height: 35vh;
-}
-
-.videoPlayerContainer>.htmlvideoplayer {
-    width: -webkit-fill-available;
-    object-fit: cover;
-} */
 
 .itemBackdrop {
     display: block !important;
@@ -2871,11 +2849,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
     background-color: rgba(255, 255, 255, 0.07);
 }
 
-/* [dir="ltr"] .listItem:not(.actionSheetMenuItem)[data-type="Episode"] .listItemBodyText:not(.secondary) {
-    font-size: 1.17em;
-    font-weight: 600;
-} */
-
 .listItem-largeImage .listItemBodyText:not(.secondary) {
     font-size: 1.17em;
     font-weight: 600 !important;
@@ -3137,6 +3110,7 @@ div[data-role="controlgroup"] a.ui-btn-active {
 .detailsGroupItem > .label {
     font-weight: 600;
     flex-basis: 6em;
+    color: var(--textColor);
 }
 
 .detailsGroupItem > .content > a {
@@ -3150,10 +3124,6 @@ div[data-role="controlgroup"] a.ui-btn-active {
     word-break: break-word;
     overflow-wrap: break-word;
     min-width: 0;
-}
-
-.detailsGroupItem > .label {
-    color: var(--textColor);
 }
 
 .layout-tv .itemDetailsGroup {
@@ -3252,19 +3222,10 @@ div[data-role="controlgroup"] a.ui-btn-active {
     padding-right: var(--sidePadding) !important;
 }
 
-/* .padded-left {
-    padding-left: var(--sidePadding) !important;
-} */
-
 .layout-mobile .padded-right-withalphapicker {
     padding-left: 4.5%;
     padding-right: 6.5%;
 }
-
-/* test disabled for 10.11.0 */
-/* .detailPagePrimaryContent.padded-right {
-    padding-right: 0 !important;
-} */
 
 [dir="ltr"] .detailPageContent,
 .content-primary {
@@ -4092,16 +4053,6 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     background: var(--activeColor) !important;
 }
 
-/* this :not() is needed to prevent affecting the mixed media libraries on the home page */
-/* #homeTab .overflowBackdropCard[data-isfolder="true"]:not(.groupedCard) .cardPadder-overflowBackdrop {
-    padding-bottom: 50%;
-}
-
-#homeTab .overflowBackdropCard[data-isfolder="true"]:not(.groupedCard) .cardText-first,
-#homeTab .overflowBackdropCard[data-isfolder="true"]:not(.groupedCard) .cardText.cardTextCentered {
-    display: var(--libraryLabelVisibility);
-} */
-
 .overflowBackdropCard[data-type="CollectionFolder"] .cardPadder-overflowBackdrop,
 .overflowBackdropCard[data-type="UserView"] .cardPadder-overflowBackdrop {
     padding-bottom: 50%;
@@ -4351,10 +4302,6 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     border: none;
 }
 
-/* v1.2.18: text-shadow fallback removed — the v1.2.17 gradient now
-   guarantees contrast on any backdrop, so the shadow was just softening
-   icon edges for no gain. Cleaner rendering without it. */
-
 /* this keeps the header elements aligned when its height is modified */
 .headerTop {
     -webkit-align-items: center;
@@ -4578,32 +4525,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     background: linear-gradient(transparent, var(--darkerGradientPointAlpha) 20em);
 }
 
-/* performance improvements fot low-end TVs - start */
-
-/* .layout-tv *,
-.layout-tv *::before,
-.layout-tv *::after {
-    transition-duration: .1s;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    box-shadow: none;
-    text-shadow: none;
-    filter: none !important;
-    -webkit-filter: none !important;
-} */
-
-/* .layout-tv .show-focus:not(.card):focus,
-.layout-tv .show-animation:not(.card):focus {
-    transform: none !important;
-} */
-
-/* .layout-tv .blurhash-canvas {
-    display: none !important;
-} */
-
-/* .layout-tv .emby-checkbox:focus + span + .checkboxOutline {
-    transform: scale(1.75);
-} */
+/* performance improvements for low-end TVs - start */
 
 .layout-tv .show-focus:focus,
 .layout-tv .show-animation:focus,
@@ -4686,7 +4608,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 .nowPlayingBar .nowPlayingBarCenter { overflow: hidden; }
 
 /* ============================================================
-   CINEMA FEATURES v1.2.2
+   CINEMA FEATURES (introduced v1.2.2, expanded through current)
    ============================================================ */
 
 /* --- 1. Skeleton Loading Placeholders --- */
@@ -4789,9 +4711,8 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     opacity: 0;
 }
 
-/* --- 4. Media Info Badges (polished) --- */
-/* Note: Scroll-to-Top module removed in v1.2.16 — Jellyfin 10.11.x has no such native element */
-/* Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
+/* --- 4. Media Info Badges (polished) ---
+   Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
    because the text is in textContent, not in a title/data attribute. Generic styling only. */
 .mediaInfoItem:not(.endsAt) {
     border-radius: 0.3em;

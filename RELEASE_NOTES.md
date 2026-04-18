@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.19
+# ElegantFin Cinema Edition v1.2.20
 
 ## [English](#english) | [Francais](#francais)
 
@@ -226,6 +226,16 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.19 — "See all →" chevron on row title hover (Netflix-pattern)
 
 - **Native chevron revealed on hover** — The theme previously unconditionally hid Jellyfin's native `chevron_right` next to row titles (Continue Watching, Recently Added, etc.). It now animates in on `:hover` using a `max-width` + `opacity` + `translateX` transition (0.25s ease). Clean Netflix-style "view all →" affordance without any new HTML. Desktop-only (`@media hover: hover and pointer: fine`), fully disabled under `prefers-reduced-motion`. The link behind is already wired to "view all" by Jellyfin.
+
+---
+
+#### v1.2.20 — Cleanup pass: removed ~70 lines of dead commented CSS
+
+- **No functional change**, no visual change, no module change — pure code hygiene.
+- Removed **8 commented-out CSS blocks** (`.detailPagePrimaryContent` ×2, `.videoPlayerContainer`, Episode listItem, `.padded-left`, `#homeTab .overflowBackdropCard`, and a 24-line `layout-tv *` perf graveyard). Total ~70 lines saved.
+- **Merged duplicate `.detailsGroupItem > .label` rule** — two separate blocks consolidated into one, same rendering.
+- **Fixed 2 stale section comments** — `CINEMA FEATURES v1.2.2` → `(introduced v1.2.2, expanded through current)`; Scroll-to-Top removal note relocated out of the Badges section; v1.2.18 historical text-shadow note removed (now in this changelog).
+- Audit checked `:has()` (76 uses, all intentional and gracefully degrading), shimmer animation (already optimized), vendor prefixes (still load-bearing) — none touched.
 
 ---
 
@@ -458,6 +468,16 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.19 — Chevron "Voir tout →" au survol des titres de rangees (pattern Netflix)
 
 - **Chevron natif revele au survol** — Le theme cachait jusqu'ici sans condition le `chevron_right` natif de Jellyfin a cote des titres de rangees (Continue Watching, Ajouts recents, etc.). Il apparait desormais au `:hover` via une transition `max-width` + `opacity` + `translateX` (0.25s ease). Affordance propre "voir tout →" style Netflix, sans aucun HTML nouveau. Desktop uniquement (`@media hover: hover and pointer: fine`), entierement desactive sous `prefers-reduced-motion`. Le lien derriere est deja cable vers "voir tout" par Jellyfin.
+
+---
+
+#### v1.2.20 — Passe de nettoyage : ~70 lignes de CSS commente mort supprimees
+
+- **Aucun changement fonctionnel**, aucun changement visuel, aucun changement de module — pure hygiene de code.
+- Suppression de **8 blocs CSS commentes** (`.detailPagePrimaryContent` ×2, `.videoPlayerContainer`, listItem Episode, `.padded-left`, `#homeTab .overflowBackdropCard`, et un cimetiere de perf `layout-tv *` de 24 lignes). Total ~70 lignes economisees.
+- **Fusion de la regle dupliquee `.detailsGroupItem > .label`** — deux blocs separes consolides en un seul, rendu identique.
+- **Correction de 2 commentaires de section stale** — `CINEMA FEATURES v1.2.2` → `(introduced v1.2.2, expanded through current)` ; note de retrait Scroll-to-Top deplacee hors de la section Badges ; note historique text-shadow v1.2.18 supprimee (desormais dans ce changelog).
+- Audit verifie : `:has()` (76 usages, tous intentionnels et degradant gracieusement), shimmer (deja optimise), prefixes vendor (toujours necessaires) — rien touche.
 
 ---
 

@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.18
+# ElegantFin Cinema Edition v1.2.19
 
 ## [English](#english) | [Francais](#francais)
 
@@ -220,6 +220,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Netflix-style spotlight on horizontal rows** — Hovering a card in a scroll row now fades + desaturates the sibling cards (`opacity 0.55`, `saturate(0.7)`, smooth 0.3s transition) so the focused card really pops. Desktop-only (scoped with `@media (hover: hover) and (pointer: fine)`), limited to `.emby-scroller` so library grid views stay untouched, fully disabled under `prefers-reduced-motion`. Graceful degrade on browsers without `:has()` — no effect, nothing breaks.
 - **Removed obsolete `text-shadow` fallback on header icons** — With the v1.2.17 gradient guaranteeing contrast on any backdrop, the `1px 1px 0 #00000080` shadow was just softening icon edges for no reason. Cleaner rendering now.
 - **Module count bumped to 27** (Spotlight Hover added).
+
+---
+
+#### v1.2.19 — "See all →" chevron on row title hover (Netflix-pattern)
+
+- **Native chevron revealed on hover** — The theme previously unconditionally hid Jellyfin's native `chevron_right` next to row titles (Continue Watching, Recently Added, etc.). It now animates in on `:hover` using a `max-width` + `opacity` + `translateX` transition (0.25s ease). Clean Netflix-style "view all →" affordance without any new HTML. Desktop-only (`@media hover: hover and pointer: fine`), fully disabled under `prefers-reduced-motion`. The link behind is already wired to "view all" by Jellyfin.
 
 ---
 
@@ -446,6 +452,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Spotlight style Netflix sur les rangees horizontales** — Au survol d'une card dans une rangee, les cards voisines se fondent + desaturent (`opacity 0.55`, `saturate(0.7)`, transition 0.3s) pour faire ressortir la card ciblee. Desktop uniquement (scope `@media (hover: hover) and (pointer: fine)`), limite aux `.emby-scroller` pour ne PAS affecter les vues grille des bibliotheques, entierement desactive sous `prefers-reduced-motion`. Degrade gracieux sur les navigateurs sans `:has()` — aucun effet, rien ne casse.
 - **Suppression du `text-shadow` fallback obsolete sur les icones du header** — Avec le degrade v1.2.17 qui garantit le contraste sur n'importe quel backdrop, l'ombre `1px 1px 0 #00000080` adoucissait les bords des icones pour rien. Rendu plus net maintenant.
 - **Compteur de modules passe a 27** (ajout de Spotlight Hover).
+
+---
+
+#### v1.2.19 — Chevron "Voir tout →" au survol des titres de rangees (pattern Netflix)
+
+- **Chevron natif revele au survol** — Le theme cachait jusqu'ici sans condition le `chevron_right` natif de Jellyfin a cote des titres de rangees (Continue Watching, Ajouts recents, etc.). Il apparait desormais au `:hover` via une transition `max-width` + `opacity` + `translateX` (0.25s ease). Affordance propre "voir tout →" style Netflix, sans aucun HTML nouveau. Desktop uniquement (`@media hover: hover and pointer: fine`), entierement desactive sous `prefers-reduced-motion`. Le lien derriere est deja cable vers "voir tout" par Jellyfin.
 
 ---
 

@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.18 */
+/* ElegantFin Cinema Edition v1.2.19 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.18";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.19";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -3358,8 +3358,33 @@ div[data-role="controlgroup"] a.ui-btn-active {
     max-width: calc(100vw - 8em);
 }
 
+/* v1.2.19: "See all →" chevron on row title hover (Netflix-pattern).
+   Previously unconditionally hidden; now collapsed by default and
+   reveals on hover using max-width animation (display can't transition).
+   Desktop-only — no purpose on TV remote / mobile tap. The native link
+   behind .sectionTitleTextButton is already wired to "view all" by Jellyfin. */
 .sectionTitleTextButton > .material-icons.chevron_right {
-    display: none !important;
+    display: inline-block !important;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: max-width 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+    vertical-align: middle;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .layout-desktop .sectionTitleTextButton:hover > .material-icons.chevron_right {
+        max-width: 1.5em;
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sectionTitleTextButton > .material-icons.chevron_right {
+        transition: none !important;
+    }
 }
 
 /* this is needed for alignment of non-clickable section headings on phones */

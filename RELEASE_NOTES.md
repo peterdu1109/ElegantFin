@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.14
+# ElegantFin Cinema Edition v1.2.15
 
 ## [English](#english) | [Francais](#francais)
 
@@ -194,6 +194,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.14 — OSD title vertical alignment fix
 
 - **`.pageTitle` now flex-centered** — Previous `line-height: 3em` hack pushed text baseline down, making the title appear lower than the back arrow. Replaced with `display: flex; align-items: center; line-height: 1.2` so the title aligns perfectly with the buttons.
+
+---
+
+#### v1.2.15 — Next Up dialog: force long titles to wrap
+
+- **`.upNextContainer` max-width 80vw → 34em** — Previous 80vw made the popup huge on desktop (~1500px on 1920p screens), so long episode titles fit on one line. Constrained to 34em (~544px) so long titles naturally wrap to 2-3 lines as intended by the existing `line-clamp: 3` rule.
 
 ---
 
@@ -394,6 +400,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.14 — Correction alignement vertical du titre OSD
 
 - **`.pageTitle` centre en flexbox** — L'ancien hack `line-height: 3em` poussait la baseline du texte vers le bas, faisant apparaitre le titre plus bas que la fleche de retour. Remplace par `display: flex; align-items: center; line-height: 1.2` pour que le titre s'aligne parfaitement avec les boutons.
+
+---
+
+#### v1.2.15 — Dialogue Next Up : longs titres forces a passer sur plusieurs lignes
+
+- **`.upNextContainer` max-width 80vw → 34em** — Les 80vw rendaient la popup enorme sur desktop (~1500px sur ecran 1920p), donc les longs titres d'episodes tenaient sur une ligne. Contrainte a 34em (~544px) pour que les longs titres passent naturellement sur 2-3 lignes comme prevu par la regle `line-clamp: 3` existante.
 
 ---
 

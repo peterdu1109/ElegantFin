@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.16 */
+/* ElegantFin Cinema Edition v1.2.17 */
 /* Enhanced with 26 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.16";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.17";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4307,11 +4307,14 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     align-content: center;
 }
 
-/* this is the transparent header, visible in main media page */
+/* v1.2.17: Netflix-style gradient header on item detail pages
+   — replaces the old fully-transparent header which became invisible
+   when the backdrop was dark/absent. Gradient guarantees icon legibility
+   on any backdrop while preserving the cinematic full-bleed effect. */
 .skinHeader-withBackground.semiTransparent {
     --headerBackground: none;
     backdrop-filter: none;
-    background-color: transparent;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
     border: none;
 }
 
@@ -4319,7 +4322,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 .skinHeader.headroom:not(.osdHeader, .noHomeButtonHeader):has(.pageTitle:empty) {
     --headerBackground: none;
     backdrop-filter: none;
-    background-color: transparent;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
     border: none;
 }
 

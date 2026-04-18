@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.16
+# ElegantFin Cinema Edition v1.2.17
 
 ## [English](#english) | [Francais](#francais)
 
@@ -206,6 +206,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.16 — Next Up fix: proper TV & mobile overrides
 
 - **Mobile & TV `max-width` now use `!important`** — v1.2.15 introduced a regression: the new `34em !important` desktop rule was overriding mobile's `90vw` (popup overflowed on phones <544px wide) and TV's `35em` values. Added `!important` to all layout-specific overrides so each platform gets its correct sizing: **desktop 34em**, **TV 38em**, **mobile 90vw**.
+
+---
+
+#### v1.2.17 — Top header: Netflix-style gradient on item detail pages
+
+- **Replaced fully-transparent header with gradient** — On item detail pages (movies/series), the top bar used `background-color: transparent` which became invisible when the backdrop was dark or missing, making icons hard to spot. Replaced with `linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)` matching Netflix / Disney+ / Prime Video pattern. Icon legibility guaranteed on any backdrop, cinematic full-bleed effect preserved — actually enhanced thanks to added visual depth. Consistent across **desktop**, **TV** and **mobile**.
 
 ---
 
@@ -418,6 +424,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.16 — Correction Next Up : overrides TV et mobile
 
 - **`max-width` mobile & TV passe en `!important`** — La v1.2.15 a introduit une regression : le `34em !important` desktop ecrasait les valeurs `90vw` (mobile) et `35em` (TV) qui n'avaient pas `!important`. Sur telephone <544px de large, la popup debordait de l'ecran. Ajout de `!important` sur les overrides layout pour que chaque plateforme garde sa taille : **desktop 34em**, **TV 38em**, **mobile 90vw**.
+
+---
+
+#### v1.2.17 — Barre du haut : degrade style Netflix sur les pages de detail
+
+- **Remplacement du header totalement transparent par un degrade** — Sur les pages de detail (films/series), la barre du haut utilisait `background-color: transparent` ce qui la rendait invisible quand le backdrop etait sombre ou absent, rendant les icones difficiles a reperer. Remplace par `linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)` selon le pattern Netflix / Disney+ / Prime Video. Lisibilite des icones garantie sur n'importe quel backdrop, effet cinema plein ecran preserve — meme renforce grace a la profondeur visuelle ajoutee. Coherent sur **desktop**, **TV** et **mobile**.
 
 ---
 

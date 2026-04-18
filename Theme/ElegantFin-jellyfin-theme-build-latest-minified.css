@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.13 */
+/* ElegantFin Cinema Edition v1.2.14 */
 /* Enhanced with 26 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.13";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.14";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4365,9 +4365,12 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 .osdHeader .pageTitle,
 .skinHeader.osdHeader .pageTitle {
     font-size: 1em !important;
-    line-height: 3em !important;
+    line-height: 1.2 !important;
     margin: 0 0.5em !important;
     overflow: visible !important;
+    display: flex !important;
+    align-items: center !important;
+    height: 3em !important;
 }
 
 .layout-desktop .headerTop {
@@ -4760,7 +4763,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 /* --- 4. Media Info Badges (polished) --- */
-/* Note: Scroll-to-Top module removed in v1.2.13 — Jellyfin 10.11.x has no such native element */
+/* Note: Scroll-to-Top module removed in v1.2.14 — Jellyfin 10.11.x has no such native element */
 /* Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
    because the text is in textContent, not in a title/data attribute. Generic styling only. */
 .mediaInfoItem:not(.endsAt) {

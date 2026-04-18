@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.13
+# ElegantFin Cinema Edition v1.2.14
 
 ## [English](#english) | [Francais](#francais)
 
@@ -188,6 +188,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Font-size: 1.1em → 1em** on `.pageTitle` to give more breathing room
 - **Buttons: 2.5em → 2.75em** to match the taller header proportionally
 - **Added `overflow: visible`** on `.headerTop` and `.pageTitle` as safety for accented characters
+
+---
+
+#### v1.2.14 — OSD title vertical alignment fix
+
+- **`.pageTitle` now flex-centered** — Previous `line-height: 3em` hack pushed text baseline down, making the title appear lower than the back arrow. Replaced with `display: flex; align-items: center; line-height: 1.2` so the title aligns perfectly with the buttons.
 
 ---
 
@@ -382,6 +388,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Taille de police : 1.1em → 1em** sur `.pageTitle` pour plus d'espace
 - **Boutons : 2.5em → 2.75em** pour garder les proportions avec le header plus grand
 - **Ajout `overflow: visible`** sur `.headerTop` et `.pageTitle` par securite pour les caracteres accentues
+
+---
+
+#### v1.2.14 — Correction alignement vertical du titre OSD
+
+- **`.pageTitle` centre en flexbox** — L'ancien hack `line-height: 3em` poussait la baseline du texte vers le bas, faisant apparaitre le titre plus bas que la fleche de retour. Remplace par `display: flex; align-items: center; line-height: 1.2` pour que le titre s'aligne parfaitement avec les boutons.
 
 ---
 

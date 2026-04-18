@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.12 */
+/* ElegantFin Cinema Edition v1.2.13 */
 /* Enhanced with 26 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.12";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.13";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4337,33 +4337,37 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     height: var(--appBarHeight);
 }
 
-/* Reduce OSD header height during playback (default is 5em — too tall) */
+/* Reduce OSD header height during playback (default is 5em — too tall)
+   3em sweet spot: short enough to not dominate the image, tall enough
+   to fit accented characters (é è à) and descenders (g p y) without clipping */
 .osdHeader,
 .skinHeader.osdHeader {
-    min-height: 2.75em !important;
-    height: 2.75em !important;
+    min-height: 3em !important;
+    height: 3em !important;
 }
 
 .osdHeader .headerTop,
 .skinHeader.osdHeader .headerTop {
-    height: 2.75em !important;
-    min-height: 2.75em !important;
-    max-height: 2.75em !important;
+    height: 3em !important;
+    min-height: 3em !important;
+    max-height: 3em !important;
     padding: 0 0.5em !important;
+    overflow: visible !important;
 }
 
 .osdHeader .headerButton,
 .skinHeader.osdHeader .headerButton {
-    height: 2.5em !important;
-    width: 2.5em !important;
+    height: 2.75em !important;
+    width: 2.75em !important;
     padding: 0.3em !important;
 }
 
 .osdHeader .pageTitle,
 .skinHeader.osdHeader .pageTitle {
-    font-size: 1.1em !important;
-    line-height: 2.75em !important;
+    font-size: 1em !important;
+    line-height: 3em !important;
     margin: 0 0.5em !important;
+    overflow: visible !important;
 }
 
 .layout-desktop .headerTop {
@@ -4756,7 +4760,7 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
 }
 
 /* --- 4. Media Info Badges (polished) --- */
-/* Note: Scroll-to-Top module removed in v1.2.12 — Jellyfin 10.11.x has no such native element */
+/* Note: Scroll-to-Top module removed in v1.2.13 — Jellyfin 10.11.x has no such native element */
 /* Note: pure CSS cannot color-code badges by type (4K/HDR/DV/Atmos) in Jellyfin 10.11.x
    because the text is in textContent, not in a title/data attribute. Generic styling only. */
 .mediaInfoItem:not(.endsAt) {

@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.12
+# ElegantFin Cinema Edition v1.2.13
 
 ## [English](#english) | [Francais](#francais)
 
@@ -179,6 +179,15 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 - **Book "Play → Read" button** — Removed `[title="Play"]` qualifier so the Book-page label override works in all languages
 - **Scroll-to-Top module removed** — Jellyfin 10.11.x has no native `.btnScrollToTop` / `[data-action="scrolltotop"]` element. The 25 lines of CSS were styling nothing. Module count: 27 → 26.
 - **Editor's Choice negation simplified** — `.itemsContainer:not(.editorsChoiceItemsContainer)` → `.itemsContainer` (the excluded class no longer exists in Jellyfin, so the `:not()` was dead logic)
+
+---
+
+#### v1.2.13 — OSD header desktop fix: title no longer clipped
+
+- **Desktop OSD header bumped from 2.75em → 3em** — The previous 2.75em height was too tight on desktop/browser: accented characters (é, è, à) and descenders (g, p, y) in the episode title were being clipped at the top/bottom. TV/mobile were fine (different rules). Now consistent 3em everywhere.
+- **Font-size: 1.1em → 1em** on `.pageTitle` to give more breathing room
+- **Buttons: 2.5em → 2.75em** to match the taller header proportionally
+- **Added `overflow: visible`** on `.headerTop` and `.pageTitle` as safety for accented characters
 
 ---
 
@@ -364,6 +373,15 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 - **Bouton livre "Play → Read"** — Retrait du qualificatif `[title="Play"]` pour que le label des livres fonctionne dans toutes les langues
 - **Module Scroll-to-Top retire** — Jellyfin 10.11.x n'a aucun element natif `.btnScrollToTop` / `[data-action="scrolltotop"]`. Les 25 lignes de CSS ne ciblaient rien. Compteur modules : 27 → 26.
 - **Negation Editor's Choice simplifiee** — `.itemsContainer:not(.editorsChoiceItemsContainer)` → `.itemsContainer` (la classe exclue n'existe plus dans Jellyfin, donc le `:not()` etait de la logique morte)
+
+---
+
+#### v1.2.13 — Correction header OSD desktop : titre plus coupe
+
+- **Hauteur OSD desktop 2.75em → 3em** — Les 2.75em de v1.2.9 etaient trop justes sur navigateur PC : les accents (é, è, à) et les descendants (g, p, y) dans les titres d'episodes etaient coupes en haut/bas. TV et mobile n'etaient pas concernes (regles differentes). Maintenant 3em partout, coherent.
+- **Taille de police : 1.1em → 1em** sur `.pageTitle` pour plus d'espace
+- **Boutons : 2.5em → 2.75em** pour garder les proportions avec le header plus grand
+- **Ajout `overflow: visible`** sur `.headerTop` et `.pageTitle` par securite pour les caracteres accentues
 
 ---
 

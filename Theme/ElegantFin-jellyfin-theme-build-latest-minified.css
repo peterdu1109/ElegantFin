@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.17 */
-/* Enhanced with 26 cinematic modules — Netflix-inspired streaming experience */
+/* ElegantFin Cinema Edition v1.2.18 */
+/* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.17";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.18";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4326,10 +4326,9 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     border: none;
 }
 
-.skinHeader-withBackground.semiTransparent .headerButton,
-.skinHeader.headroom:not(.osdHeader, .noHomeButtonHeader):has(.pageTitle:empty) .headerButton {
-    text-shadow: 1px 1px 0 #00000080;
-}
+/* v1.2.18: text-shadow fallback removed — the v1.2.17 gradient now
+   guarantees contrast on any backdrop, so the shadow was just softening
+   icon edges for no gain. Cleaner rendering without it. */
 
 /* this keeps the header elements aligned when its height is modified */
 .headerTop {
@@ -4869,6 +4868,31 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     box-shadow: none;
+}
+
+/* --- 9. Spotlight Hover on Card Rows (Netflix-style) ---
+   v1.2.18: when hovering a card in a horizontal scroller, sibling cards
+   fade + desaturate so the focused card stands out. Desktop-only
+   (hover is unreliable on touch/remote); scoped to .emby-scroller so
+   library grid views are NOT affected. Graceful degrade on browsers
+   without :has() support — just no effect, nothing breaks. */
+@media (hover: hover) and (pointer: fine) {
+    .layout-desktop .emby-scroller:has(.card:hover) .card:not(:hover) {
+        opacity: 0.55;
+        filter: saturate(0.7);
+        transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+
+    .layout-desktop .emby-scroller .card {
+        transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .layout-desktop .emby-scroller:has(.card:hover) .card:not(:hover) {
+        opacity: 1 !important;
+        filter: none !important;
+    }
 }
 
 /* ============================================================

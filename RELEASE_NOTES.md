@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.17
+# ElegantFin Cinema Edition v1.2.18
 
 ## [English](#english) | [Francais](#francais)
 
@@ -212,6 +212,14 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.17 — Top header: Netflix-style gradient on item detail pages
 
 - **Replaced fully-transparent header with gradient** — On item detail pages (movies/series), the top bar used `background-color: transparent` which became invisible when the backdrop was dark or missing, making icons hard to spot. Replaced with `linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)` matching Netflix / Disney+ / Prime Video pattern. Icon legibility guaranteed on any backdrop, cinematic full-bleed effect preserved — actually enhanced thanks to added visual depth. Consistent across **desktop**, **TV** and **mobile**.
+
+---
+
+#### v1.2.18 — Spotlight hover on card rows + header cleanup
+
+- **Netflix-style spotlight on horizontal rows** — Hovering a card in a scroll row now fades + desaturates the sibling cards (`opacity 0.55`, `saturate(0.7)`, smooth 0.3s transition) so the focused card really pops. Desktop-only (scoped with `@media (hover: hover) and (pointer: fine)`), limited to `.emby-scroller` so library grid views stay untouched, fully disabled under `prefers-reduced-motion`. Graceful degrade on browsers without `:has()` — no effect, nothing breaks.
+- **Removed obsolete `text-shadow` fallback on header icons** — With the v1.2.17 gradient guaranteeing contrast on any backdrop, the `1px 1px 0 #00000080` shadow was just softening icon edges for no reason. Cleaner rendering now.
+- **Module count bumped to 27** (Spotlight Hover added).
 
 ---
 
@@ -430,6 +438,14 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.17 — Barre du haut : degrade style Netflix sur les pages de detail
 
 - **Remplacement du header totalement transparent par un degrade** — Sur les pages de detail (films/series), la barre du haut utilisait `background-color: transparent` ce qui la rendait invisible quand le backdrop etait sombre ou absent, rendant les icones difficiles a reperer. Remplace par `linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%)` selon le pattern Netflix / Disney+ / Prime Video. Lisibilite des icones garantie sur n'importe quel backdrop, effet cinema plein ecran preserve — meme renforce grace a la profondeur visuelle ajoutee. Coherent sur **desktop**, **TV** et **mobile**.
+
+---
+
+#### v1.2.18 — Effet spotlight au survol des rangees de cards + nettoyage header
+
+- **Spotlight style Netflix sur les rangees horizontales** — Au survol d'une card dans une rangee, les cards voisines se fondent + desaturent (`opacity 0.55`, `saturate(0.7)`, transition 0.3s) pour faire ressortir la card ciblee. Desktop uniquement (scope `@media (hover: hover) and (pointer: fine)`), limite aux `.emby-scroller` pour ne PAS affecter les vues grille des bibliotheques, entierement desactive sous `prefers-reduced-motion`. Degrade gracieux sur les navigateurs sans `:has()` — aucun effet, rien ne casse.
+- **Suppression du `text-shadow` fallback obsolete sur les icones du header** — Avec le degrade v1.2.17 qui garantit le contraste sur n'importe quel backdrop, l'ombre `1px 1px 0 #00000080` adoucissait les bords des icones pour rien. Rendu plus net maintenant.
+- **Compteur de modules passe a 27** (ajout de Spotlight Hover).
 
 ---
 

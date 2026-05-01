@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.21 */
+/* ElegantFin Cinema Edition v1.2.22 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.21";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.22";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1365,31 +1365,16 @@ body {
     height: calc(100vh - 27vh - var(--primaryItemPageNegativeSpace));
 }
 
-/* v1.2.21: Backdrop gradient flipped from horizontal (side) to vertical (bottom).
-   The original --itemBackdropSideGradient darkens the LEFT half — designed
-   for left-aligned content. Jellyfin 10.11.x centers content (logo, buttons,
-   description), so the side gradient was just hiding the left part of the
-   backdrop image without functional purpose. Replaced with a bottom-up
-   vertical fade matching Netflix / Disney+ / Prime Video pattern: dark
-   at the bottom where buttons sit, transparent at top to fully reveal
-   the backdrop. Written inline rather than via --itemBackdropMaskEnhanced
-   because that variable uses 180deg (top-down) which is the opposite use case. */
+/* v1.2.22: Backdrop overlay completely removed on desktop.
+   History: v1.2.21 tried a vertical bottom→top dark fade (replacing the
+   original horizontal left-side fade), but it drowned the short backdrops
+   on season/episode pages (~13vh) where the gradient covered 100% of the
+   visible image. v1.2.22 simply removes the overlay entirely on desktop —
+   the natural dark page background BELOW the backdrop image (where Lire
+   button + description sit) provides plenty of contrast for the content.
+   Backdrop image is now fully visible on all detail pages. */
 .layout-desktop .itemBackdrop::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.6) 30%,
-        rgba(0, 0, 0, 0.3) 60%,
-        transparent 100%
-    );
-    z-index: 1;
-    pointer-events: none;
+    display: none;
 }
 
 .layout-mobile .itemBackdrop {

@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.21
+# ElegantFin Cinema Edition v1.2.22
 
 ## [English](#english) | [Francais](#francais)
 
@@ -243,6 +243,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 
 - **TV: subtitle now wraps on 3 lines instead of overflowing** — On Tizen / Samsung TV, entering a series episode caused the `.subtitle` (e.g. `S01E03 — Episode Title`) to overflow off-screen because only the global `white-space: nowrap` rule applied. Added a `.layout-tv .subtitle` override with `display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; max-height: 4em;`. 3 lines (vs mobile's 2) gives more breathing room appropriate for TV viewing distance, with `max-height` as a fallback for older Tizen WebKit if `-webkit-line-clamp` misbehaves.
 - **Desktop: backdrop gradient flipped from side to bottom (Netflix-pattern)** — The original `--itemBackdropSideGradient` darkened the LEFT half of the backdrop with `linear-gradient(90deg, var(--darkerGradientPoint) 0%, transparent 50%)`, designed for left-aligned content. But Jellyfin 10.11.x centers logo/buttons/description, so the side darkening was hiding the left of the image without purpose (e.g. cropping out characters in series like Classroom of the Elite). Replaced with a bottom-up vertical gradient `rgba(0,0,0,0.85) → transparent` matching Netflix / Disney+ / Prime Video pattern: dark at the bottom for button contrast, fully revealed at top.
+
+---
+
+#### v1.2.22 — Desktop backdrop overlay completely removed (fix v1.2.21 regression)
+
+- **`.layout-desktop .itemBackdrop::before` now `display: none`** — The v1.2.21 vertical gradient worked fine on the main series detail page (~50vh backdrop) but drowned the short backdrops on **Season** and **Episode** pages (~13vh) where the gradient covered 100% of the visible image, making the backdrop nearly invisible. After visual review, the natural dark theme page background BELOW the backdrop already provides ample contrast for the Lire button and description text. The overlay was double-darkening for no benefit. Backdrop image is now fully visible on all detail page types (series, season, episode). Mobile and TV unaffected (they use their own `mask` rules).
 
 ---
 
@@ -492,6 +498,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 
 - **TV : le sous-titre wrap sur 3 lignes au lieu de deborder** — Sur Tizen / TV Samsung, en entrant dans un episode de serie, le `.subtitle` (ex. `S01E03 — Titre de l'episode`) sortait de l'ecran car seule la regle globale `white-space: nowrap` s'appliquait. Ajout d'un override `.layout-tv .subtitle` avec `display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; max-height: 4em;`. 3 lignes (contre 2 sur mobile) donnent plus d'aisance adapte a la distance de lecture TV, avec `max-height` en garde-fou pour les vieux WebKit Tizen si `-webkit-line-clamp` deconne.
 - **Desktop : degrade backdrop bascule du cote au bas (pattern Netflix)** — Le `--itemBackdropSideGradient` d'origine assombrissait la moitie GAUCHE du backdrop avec `linear-gradient(90deg, var(--darkerGradientPoint) 0%, transparent 50%)`, concu pour du contenu aligne a gauche. Mais Jellyfin 10.11.x centre logo / boutons / description, donc l'assombrissement lateral cachait la gauche de l'image sans but (ex. coupait des personnages dans Classroom of the Elite). Remplace par un degrade vertical bottom-up `rgba(0,0,0,0.85) → transparent` selon le pattern Netflix / Disney+ / Prime Video : sombre en bas pour le contraste des boutons, image entierement revelee en haut.
+
+---
+
+#### v1.2.22 — Suppression complete de l'overlay backdrop sur desktop (fix regression v1.2.21)
+
+- **`.layout-desktop .itemBackdrop::before` passe en `display: none`** — Le degrade vertical de v1.2.21 fonctionnait bien sur la page principale de serie (~50vh de backdrop) mais noyait les backdrops courts des pages **Saison** et **Episode** (~13vh) ou le degrade couvrait 100% de l'image visible, rendant le backdrop quasi invisible. Apres examen visuel, le fond sombre naturel du theme SOUS le backdrop fournit deja un contraste suffisant pour le bouton Lire et le texte de description. L'overlay assombrissait deux fois sans benefice. Backdrop entierement visible sur tous les types de pages detail (serie, saison, episode). Mobile et TV non affectes (ils utilisent leurs propres regles de `mask`).
 
 ---
 

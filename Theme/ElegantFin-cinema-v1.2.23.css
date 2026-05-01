@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.22 */
+/* ElegantFin Cinema Edition v1.2.23 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.22";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.23";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -4897,3 +4897,22 @@ for extended styling, use the add-on */
 }
 
 /* basic styling for the Media Bar Plugin - end */
+
+/* === Editor's Choice Plugin overrides — start ===
+   Plugin: lachlandcp/jellyfin-editors-choice-plugin
+   v1.2.23: fix button/section collision when description is long.
+   The plugin sets line-clamp: 4 inline on .editorsChoiceItemOverview and
+   positions the "Regarder" button absolutely at bottom: 30px of the banner.
+   With no margin under the banner, the button visually touches the next
+   home section title (e.g. "Mes médias"). Tighter clamp + bottom margin. */
+
+#editorsChoiceContainer {
+    margin-bottom: 2em;
+}
+
+.layout-desktop .editorsChoiceItemOverview {
+    -webkit-line-clamp: 3 !important;
+    line-clamp: 3 !important;
+}
+
+/* === Editor's Choice Plugin overrides — end === */

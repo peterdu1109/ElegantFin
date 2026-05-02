@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.25 */
+/* ElegantFin Cinema Edition v1.2.26 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.25";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.26";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1534,32 +1534,36 @@ body {
     display: var(--itemTitleVisibility);
 }
 
-/* v1.2.25: re-expose parentName link when clearLogo is visible, styled
-   identically to .itemName ("Saison 3") for visual consistency.
-   The original rule hid ALL h1s in nameContainer (cinematic logo-only
-   look), which silently removed the <a> link inside h1.parentName
-   that lets users navigate back to the series. Now parentName inherits
-   the default big title style (font-size: clamp(2em, 5vw, 4em), weight 100,
-   white) — same as itemName. A subtle underline indicates clickability.
-   itemName stays hidden via the original rule (avoids redundancy with logo). */
+/* v1.2.26: re-expose parentName link when clearLogo is visible, styled
+   to match the "Saison X" / "Episode Y" rendering (.subtitle style).
+   Prior versions either showed it tiny (v1.2.24) or with a permanent
+   underline at title-clamp size (v1.2.25). Now: same look-and-feel as
+   the season title — moderate 2em size, weight 400, white, centered,
+   no underline by default. Click affordance comes from a subtle
+   underline that appears ONLY on hover (text-decoration: underline
+   on :hover). itemName stays hidden via the original rule. */
 .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName {
     display: block !important;
-    /* Inherits font-size, weight, color, text-shadow from
-       .nameContainer > h1.parentName default rule (line ~3651) —
-       same as h1.itemName ("Saison 3") rendering. */
+    font-size: 2em !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+    padding-bottom: 0.25em !important;
+    text-align: center;
 }
 
 .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a {
     color: inherit !important;
-    text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.3);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 0.15em;
+    text-decoration: none !important;
     transition: text-decoration-color 0.2s ease;
 }
 
 .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a:hover {
-    text-decoration-color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline !important;
+    text-decoration-color: rgba(255, 255, 255, 0.6);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 0.2em;
 }
 
 /* this shows the main media title and the poster when the clear logo is unavailable*/

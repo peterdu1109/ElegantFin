@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.25
+# ElegantFin Cinema Edition v1.2.26
 
 ## [English](#english) | [Francais](#francais)
 
@@ -267,6 +267,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.25 — Parent breadcrumb now matches the title style ("Saison 3" look)
 
 - **Restyled parentName breadcrumb to match itemName rendering** — Per user feedback, the small/subtle breadcrumb introduced in v1.2.24 looked out of place compared to the big "Saison 3" title below. Now `h1.parentName` inherits the default `.nameContainer h1` style (`font-size: clamp(2em, 5vw, 4em)`, weight 100, white) — same as the season/episode title — so the parent series link appears at full title size. Click affordance comes from a 2px underline at 30% white opacity that brightens to 90% on hover. Visual hierarchy now reads: **Logo → Series link → Season title**, all consistent.
+
+---
+
+#### v1.2.26 — Parent breadcrumb final design (clean, no permanent underline)
+
+- **Final breadcrumb style: matches the visible "Saison X" / "Episode Y" rendering** — Iterating on user feedback after v1.2.25 ("the underline is ugly, I want the same look as Saison 3, properly bold, neither too big nor too small"). Now `h1.parentName` is styled to match the visible season/episode title: **font-size 2em**, **font-weight 400 (normal, not the inherited thin 100)**, **letter-spacing normal** (overrides theme's -0.02em), **white**, **centered**, with a soft text-shadow for legibility. **No permanent underline** — the link is clean by default. Click affordance comes from a subtle underline that **appears only on `:hover`** (1.5px, 60% white opacity, 0.2em offset). Mobile users discover by tapping; desktop users see the underline reveal on mouseover. Final result is consistent with the cinema/elegant aesthetic of the theme.
 
 ---
 
@@ -540,6 +546,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.25 — Le breadcrumb parent prend le style du titre ("look Saison 3")
 
 - **Breadcrumb parentName restyle pour matcher itemName** — Suite au retour utilisateur, le petit breadcrumb subtil introduit en v1.2.24 jurait avec le gros titre "Saison 3" en dessous. Maintenant `h1.parentName` herite du style par defaut de `.nameContainer h1` (`font-size: clamp(2em, 5vw, 4em)`, weight 100, blanc) — meme que le titre saison/episode — pour que le lien serie parent apparaisse a la taille de titre complete. L'indicateur de clic vient d'un underline 2px en blanc 30% qui s'intensifie a 90% au survol. La hierarchie visuelle est maintenant : **Logo → Lien serie → Titre saison**, tous coherents.
+
+---
+
+#### v1.2.26 — Design final du breadcrumb parent (propre, sans soulignement permanent)
+
+- **Style final du breadcrumb : matche le rendu visible "Saison X" / "Episode Y"** — Iteration suite au retour utilisateur apres v1.2.25 ("le souligne est moche, je veux le meme look que Saison 3, en gras correctement, ni trop grand ni trop petit"). Maintenant `h1.parentName` est style pour matcher le titre saison/episode visible : **font-size 2em**, **font-weight 400 (normal, pas le thin 100 herite)**, **letter-spacing normal** (override le -0.02em du theme), **blanc**, **centre**, avec un text-shadow doux pour la lisibilite. **Pas de souligne permanent** — le lien est propre par defaut. L'indicateur de clic vient d'un souligne subtil qui **apparait uniquement au `:hover`** (1.5px, blanc 60%, offset 0.2em). Sur mobile, decouvert au tap ; sur desktop, le souligne revele au survol souris. Le rendu final est coherent avec l'esthetique cinema/elegante du theme.
 
 ---
 

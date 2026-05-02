@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.23 */
+/* ElegantFin Cinema Edition v1.2.24 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.23";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.24";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1532,6 +1532,34 @@ body {
 .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1 {
     z-index: 2;
     display: var(--itemTitleVisibility);
+}
+
+/* v1.2.24: re-expose parentName link when clearLogo is visible.
+   The rule above hides ALL h1s in nameContainer, which also hid the
+   <a> link inside h1.parentName that lets users navigate back to
+   the parent series from a season/episode page. Now: itemName stays
+   hidden (avoids redundancy with the logo image), but parentName is
+   shown as a small clickable breadcrumb above. */
+.detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName {
+    display: block !important;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    opacity: 0.7;
+    margin-bottom: 0.5em;
+    text-shadow: none !important;
+}
+
+.detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a {
+    color: inherit !important;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.4);
+    text-underline-offset: 0.2em;
+    transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a:hover {
+    text-decoration-color: rgba(255, 255, 255, 1);
+    opacity: 1;
 }
 
 /* this shows the main media title and the poster when the clear logo is unavailable*/

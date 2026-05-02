@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.23
+# ElegantFin Cinema Edition v1.2.24
 
 ## [English](#english) | [Francais](#francais)
 
@@ -255,6 +255,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.23 — Editor's Choice plugin: button/section collision fix
 
 - **Added overrides for the [Editor's Choice plugin](https://github.com/lachlandcp/jellyfin-editors-choice-plugin)** — When the description (`.editorsChoiceItemOverview`) was long enough to fill the plugin's default `-webkit-line-clamp: 4`, the absolutely-positioned "Regarder" button (`bottom: 30px` of the banner) visually collided with the next home section title (e.g. "Mes médias") because the banner had no `margin-bottom`. Added `#editorsChoiceContainer { margin-bottom: 2em }` for breathing room, and tightened the description to **3 lines on desktop** (`-webkit-line-clamp: 3 !important`) so the gap between text and button is always preserved. Mobile/TV keep the plugin's default 4-line behavior. If the plugin isn't installed, these rules are inert (selectors don't exist).
+
+---
+
+#### v1.2.24 — Restore parent-series link on season/episode pages (UX fix)
+
+- **Series breadcrumb back-link restored** — When a series has a clear logo (`.detailLogo`), the theme was hiding ALL `h1` elements inside `.nameContainer` for the cinematic logo-only look. This silently removed the `<a>` link inside `h1.parentName` that lets users navigate back to the series from a season or episode page — leaving only the header back arrow as a way to go up the hierarchy. Now `h1.parentName` is re-shown as a small subtle clickable breadcrumb (font-size 1em, opacity 0.7, underline) while `h1.itemName` stays hidden (avoids redundancy with the logo image). Affects desktop, mobile, and TV. Cleanly degrades when no logo exists (old behavior). Pure visual addition — no other rules touched.
 
 ---
 
@@ -516,6 +522,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.23 — Plugin Editor's Choice : fix collision bouton / section suivante
 
 - **Ajout d'overrides pour le [plugin Editor's Choice](https://github.com/lachlandcp/jellyfin-editors-choice-plugin)** — Quand la description (`.editorsChoiceItemOverview`) etait assez longue pour remplir le `-webkit-line-clamp: 4` par defaut du plugin, le bouton "Regarder" en `position: absolute; bottom: 30px` du banner entrait visuellement en collision avec le titre de la section suivante (ex. "Mes medias") car le banner n'avait aucun `margin-bottom`. Ajout de `#editorsChoiceContainer { margin-bottom: 2em }` pour respirer, et resserrement de la description a **3 lignes sur desktop** (`-webkit-line-clamp: 3 !important`) pour garantir l'espace entre le texte et le bouton. Mobile/TV gardent le comportement 4 lignes du plugin. Si le plugin n'est pas installe, ces regles sont inertes (les selecteurs n'existent pas).
+
+---
+
+#### v1.2.24 — Lien parent-serie restaure sur les pages saison / episode (fix UX)
+
+- **Breadcrumb cliquable vers la serie restaure** — Quand une serie possede un clear logo (`.detailLogo`), le theme cachait TOUS les `h1` dans `.nameContainer` pour preserver le look cinema "logo only". Effet de bord silencieux : le lien `<a>` a l'interieur du `h1.parentName` qui permet de revenir a la serie depuis une page saison ou episode etait egalement cache — laissant la fleche du header comme seule methode de remontee. Le `h1.parentName` est maintenant re-affiche comme un petit breadcrumb cliquable et discret (font-size 1em, opacity 0.7, underline) tandis que `h1.itemName` reste cache (evite la redondance avec le logo image). Affecte desktop, mobile et TV. Degrade proprement quand il n'y a pas de logo (ancien comportement). Ajout purement visuel — aucune autre regle modifiee.
 
 ---
 

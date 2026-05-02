@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.24
+# ElegantFin Cinema Edition v1.2.25
 
 ## [English](#english) | [Francais](#francais)
 
@@ -261,6 +261,12 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.24 — Restore parent-series link on season/episode pages (UX fix)
 
 - **Series breadcrumb back-link restored** — When a series has a clear logo (`.detailLogo`), the theme was hiding ALL `h1` elements inside `.nameContainer` for the cinematic logo-only look. This silently removed the `<a>` link inside `h1.parentName` that lets users navigate back to the series from a season or episode page — leaving only the header back arrow as a way to go up the hierarchy. Now `h1.parentName` is re-shown as a small subtle clickable breadcrumb (font-size 1em, opacity 0.7, underline) while `h1.itemName` stays hidden (avoids redundancy with the logo image). Affects desktop, mobile, and TV. Cleanly degrades when no logo exists (old behavior). Pure visual addition — no other rules touched.
+
+---
+
+#### v1.2.25 — Parent breadcrumb now matches the title style ("Saison 3" look)
+
+- **Restyled parentName breadcrumb to match itemName rendering** — Per user feedback, the small/subtle breadcrumb introduced in v1.2.24 looked out of place compared to the big "Saison 3" title below. Now `h1.parentName` inherits the default `.nameContainer h1` style (`font-size: clamp(2em, 5vw, 4em)`, weight 100, white) — same as the season/episode title — so the parent series link appears at full title size. Click affordance comes from a 2px underline at 30% white opacity that brightens to 90% on hover. Visual hierarchy now reads: **Logo → Series link → Season title**, all consistent.
 
 ---
 
@@ -528,6 +534,12 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.24 — Lien parent-serie restaure sur les pages saison / episode (fix UX)
 
 - **Breadcrumb cliquable vers la serie restaure** — Quand une serie possede un clear logo (`.detailLogo`), le theme cachait TOUS les `h1` dans `.nameContainer` pour preserver le look cinema "logo only". Effet de bord silencieux : le lien `<a>` a l'interieur du `h1.parentName` qui permet de revenir a la serie depuis une page saison ou episode etait egalement cache — laissant la fleche du header comme seule methode de remontee. Le `h1.parentName` est maintenant re-affiche comme un petit breadcrumb cliquable et discret (font-size 1em, opacity 0.7, underline) tandis que `h1.itemName` reste cache (evite la redondance avec le logo image). Affecte desktop, mobile et TV. Degrade proprement quand il n'y a pas de logo (ancien comportement). Ajout purement visuel — aucune autre regle modifiee.
+
+---
+
+#### v1.2.25 — Le breadcrumb parent prend le style du titre ("look Saison 3")
+
+- **Breadcrumb parentName restyle pour matcher itemName** — Suite au retour utilisateur, le petit breadcrumb subtil introduit en v1.2.24 jurait avec le gros titre "Saison 3" en dessous. Maintenant `h1.parentName` herite du style par defaut de `.nameContainer h1` (`font-size: clamp(2em, 5vw, 4em)`, weight 100, blanc) — meme que le titre saison/episode — pour que le lien serie parent apparaisse a la taille de titre complete. L'indicateur de clic vient d'un underline 2px en blanc 30% qui s'intensifie a 90% au survol. La hierarchie visuelle est maintenant : **Logo → Lien serie → Titre saison**, tous coherents.
 
 ---
 

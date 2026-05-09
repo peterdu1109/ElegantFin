@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.29 */
+/* ElegantFin Cinema Edition v1.2.30 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.29";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.30";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1282,15 +1282,24 @@ body {
     column-gap: 0.5em;
 }
 
+/* v1.2.30: unify .mediaInfoOfficialRating (FR-XX age rating) with the
+   other chips style so it sits at the same height with consistent
+   appearance. The previous transform: translateY(-0.15em) caused the
+   FR-XX badge to be visually raised compared to the year, star, and
+   percentage chips — and on TV it could even be clipped at the top.
+   Now matches .mediaInfoItem:not(.endsAt) styling. */
 .mediaInfoOfficialRating {
-    background: transparent !important;
-    font-size: 0.75em;
-    font-family: "Noto Sans", sans-serif;
-    line-height: 1.5em;
-    transform: translateY(-0.15em);
-    font-weight: 700 !important;
-    border-color: rgba(255, 255, 255, 0.25) !important;
-    color: var(--textColor);
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 0.3em !important;
+    padding: 0.15em 0.5em !important;
+    font-size: 0.75em !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.04em !important;
+    font-family: inherit;
+    line-height: inherit;
+    transform: none !important;
+    color: var(--textColor) !important;
 }
 
 .starIcon {
@@ -1566,10 +1575,10 @@ body {
     text-underline-offset: 0.2em;
 }
 
-/* v1.2.29: parentName breadcrumb on mobile — reduced margin-top.
-   v1.2.28's 18vh was too aggressive, leaving a large empty black gap
-   between the logo and the breadcrumb. 5vh nudges the breadcrumb just
-   enough below the logo zone without creating a void. */
+/* v1.2.30: parentName breadcrumb on mobile — margin-top further reduced
+   to 2vh. v1.2.29's 5vh was still leaving visible empty space between
+   the logo and the breadcrumb. 2vh is the minimum gap that still avoids
+   any visual overlap with the logo's bottom edge. */
 .layout-mobile .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName {
     display: block !important;
     font-size: 1.5em !important;
@@ -1579,7 +1588,7 @@ body {
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
     padding: 0.25em 1em !important;
     text-align: center;
-    margin-top: 5vh !important;
+    margin-top: 2vh !important;
     position: relative;
     z-index: 5;
 }

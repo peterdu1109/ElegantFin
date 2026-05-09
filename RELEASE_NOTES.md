@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.29
+# ElegantFin Cinema Edition v1.2.30
 
 ## [English](#english) | [Francais](#francais)
 
@@ -303,6 +303,15 @@ Quick iteration based on user testing of v1.2.28:
 
 - **Mobile breadcrumb margin reduced from 18vh to 5vh** — The 18vh push left a large empty black gap between the logo and the breadcrumb on the saison page. 5vh is just enough to clear the logo zone without creating a visual void.
 - **TV header z-index forced to 1000** — User reported that on Tizen, the backdrop image appeared visually ABOVE the header bar on saison and episode pages. Adding `position: relative; z-index: 1000 !important` ensures the header stays on top of the backdrop regardless of how Tizen orders layers.
+
+---
+
+#### v1.2.30 — Chip alignment + tighter mobile breadcrumb spacing
+
+3 fixes addressing visual alignment issues:
+
+- **`.mediaInfoOfficialRating` (FR-XX age rating chip) unified with other chips** — The original styling used `transform: translateY(-0.15em)` plus `background: transparent`, which made the FR-12 / FR-10 badge appear visually raised compared to year, star rating, and percentage chips. On TV the offset could even cause the chip to be clipped at the top edge. Now matches `.mediaInfoItem:not(.endsAt)` styling: same background (`rgba(255,255,255,0.05)`), same border (`1px rgba(255,255,255,0.15)`), same border-radius, padding, font-size, font-weight, letter-spacing. Transform removed. All chips now sit at the same height with consistent appearance.
+- **Mobile breadcrumb margin-top reduced from 5vh to 2vh** — 5vh still left a visible empty gap between the logo and the breadcrumb. 2vh is the minimum that still avoids overlap with the logo's bottom edge.
 
 ---
 
@@ -612,6 +621,15 @@ Iteration rapide suite au test utilisateur de v1.2.28 :
 
 - **Marge breadcrumb mobile reduite de 18vh a 5vh** — Le push de 18vh laissait un grand vide noir entre le logo et le breadcrumb sur la page saison. 5vh suffit pour passer sous la zone logo sans creer de vide visuel.
 - **Z-index header TV force a 1000** — L'utilisateur a signale que sur Tizen, l'image backdrop apparaissait visuellement AU-DESSUS de la barre header sur les pages saison et episode. L'ajout de `position: relative; z-index: 1000 !important` assure que le header reste au-dessus du backdrop quel que soit l'ordre des couches sur Tizen.
+
+---
+
+#### v1.2.30 — Alignement des chips + espacement mobile breadcrumb resserre
+
+3 fixes adressant des problemes d'alignement visuel :
+
+- **`.mediaInfoOfficialRating` (chip FR-XX age rating) unifie avec les autres chips** — Le style original utilisait `transform: translateY(-0.15em)` + `background: transparent`, ce qui faisait paraitre le badge FR-12 / FR-10 visuellement remonte par rapport aux chips annee, etoile rating, et pourcentage. Sur TV l'offset pouvait meme causer le clipping de la chip en haut. Maintenant matche le style de `.mediaInfoItem:not(.endsAt)` : meme background (`rgba(255,255,255,0.05)`), meme border (`1px rgba(255,255,255,0.15)`), meme border-radius, padding, font-size, font-weight, letter-spacing. Transform supprime. Toutes les chips ont maintenant la meme hauteur avec apparence coherente.
+- **Marge mobile breadcrumb reduite de 5vh a 2vh** — 5vh laissait encore un vide visible entre le logo et le breadcrumb. 2vh est le minimum qui evite encore l'overlap avec le bord bas du logo.
 
 ---
 

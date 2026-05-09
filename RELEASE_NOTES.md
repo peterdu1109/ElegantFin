@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.27
+# ElegantFin Cinema Edition v1.2.28
 
 ## [English](#english) | [Francais](#francais)
 
@@ -284,6 +284,16 @@ Bundle of 4 fixes addressing real user-reported issues across all platforms:
 - **Mobile: detail page containers constrained to viewport width** — In-progress episodes use a `backdropCard` (wide thumbnail) instead of `portraitCard`, which combined with the grid auto-sizing on `.infoWrapper` could push content past the screen edge (text and image overflow on the right). Forced `max-width: 100vw; overflow-x: hidden; box-sizing: border-box` on `.infoWrapper`, `.detailPagePrimaryContent`, `.detailPagePrimaryContainer`, `.detailImageContainer`. Plus `overflow-wrap: anywhere; word-break: break-word` on `.nameContainer` h1/h3 so long titles wrap cleanly. Card max-width capped at 60vw.
 - **Mobile: line-clamp 4 for long episode titles** — Was 3 lines, now 4. Long anime episode titles ("Saison 3 - 10. La première cause de conclusions absurdes, je l'attribue au manque de méthode") were getting cut. Added `max-width: 100%; overflow-wrap: anywhere` to the `bdi` rule too.
 - **TV: forced header gradient regardless of class combination** — The v1.2.17 gradient relied on `.skinHeader-withBackground.semiTransparent` class which Tizen via Jellyfin2Samsung doesn't always apply on detail pages, leaving the bar fully transparent (icons floating on bright backdrops). Now forces the gradient on `.layout-tv .skinHeader`, `.layout-tv .skinHeader-withBackground`, `.layout-tv .skinHeader-withBackground.semiTransparent`. Slightly stronger top opacity (0.85 vs desktop's 0.75) to compensate for couch viewing distance.
+
+---
+
+#### v1.2.28 — TV gradient fixes (saison/episode pages) + restore mobile breadcrumb
+
+Iteration based on user testing:
+
+- **TV gradient now applies on saison/episode pages too** — v1.2.27 only worked on the series main page; the saison and episode pages have a different class combination on the header that wasn't covered by `.skinHeader-withBackground`. Selector simplified to `.layout-tv .skinHeader:not(.osdHeader)` which catches every header context except the playback OSD.
+- **TV gradient softened to feel like a thin top shadow** — Previous gradient (0.85 → 0.5 → 0.15 over full height) made the bar look like a thick dark band. New gradient `0.7 → 0.3 → transparent at 80%` fades much faster, so the visible "dark area" only covers the top ~30% of the header — a subtle shadow rather than a thick stripe.
+- **Mobile breadcrumb restored, positioned to avoid logo overlap** — v1.2.27 hid the breadcrumb on mobile when the logo was visible (to avoid the visual overlap reported in v1.2.24-26). Now the breadcrumb is back, displayed at moderate size (1.5em, weight 400, white, centered) with `margin-top: 18vh` to push it past the absolutely-positioned `.detailLogo` (which spans roughly 45vh-62vh on mobile). No permanent underline, clean tap target. Mobile users can now tap the series name to navigate back, without the logo/text overlap of previous iterations.
 
 ---
 
@@ -574,6 +584,16 @@ Bundle de 4 fixes adressant des problemes utilisateurs reels sur toutes les plat
 - **Mobile : conteneurs detail page contraints au viewport** — Les episodes en cours utilisent un `backdropCard` (vignette large) au lieu de `portraitCard`, ce qui combine avec l'auto-sizing grid de `.infoWrapper` pouvait pousser le contenu hors de l'ecran (texte et image qui depassent a droite). Force `max-width: 100vw; overflow-x: hidden; box-sizing: border-box` sur `.infoWrapper`, `.detailPagePrimaryContent`, `.detailPagePrimaryContainer`, `.detailImageContainer`. Plus `overflow-wrap: anywhere; word-break: break-word` sur les h1/h3 de `.nameContainer` pour que les longs titres wrap proprement. `max-width: 60vw` cape sur la card.
 - **Mobile : line-clamp 4 pour longs titres episodes** — Etait 3 lignes, passe a 4. Les longs titres anime ("Saison 3 - 10. La premiere cause de conclusions absurdes, je l'attribue au manque de methode") etaient coupes. Ajout de `max-width: 100%; overflow-wrap: anywhere` sur le bdi aussi.
 - **TV : gradient header force quel que soit la combinaison de classes** — Le gradient v1.2.17 reposait sur la classe `.skinHeader-withBackground.semiTransparent` que Tizen via Jellyfin2Samsung n'applique pas toujours sur les pages detail, laissant la barre totalement transparente (icones flottantes sur backdrops clairs). Force maintenant le gradient sur `.layout-tv .skinHeader`, `.layout-tv .skinHeader-withBackground`, `.layout-tv .skinHeader-withBackground.semiTransparent`. Opacite top legerement renforcee (0.85 vs 0.75 desktop) pour compenser la distance de visionnage canape.
+
+---
+
+#### v1.2.28 — Fixes gradient TV (pages saison/episode) + breadcrumb mobile restaure
+
+Iteration suite au test utilisateur :
+
+- **Gradient TV s'applique maintenant aussi sur saison/episode** — v1.2.27 ne marchait que sur la page principale de serie ; les pages saison et episode ont une combinaison de classes differente sur le header non couverte par `.skinHeader-withBackground`. Selecteur simplifie en `.layout-tv .skinHeader:not(.osdHeader)` qui attrape tous les contextes header sauf l'OSD player.
+- **Gradient TV adouci pour ressembler a une fine ombre top** — Le gradient precedent (0.85 → 0.5 → 0.15 sur toute la hauteur) faisait paraitre la barre comme un epais bandeau sombre. Nouveau gradient `0.7 → 0.3 → transparent a 80%` fade beaucoup plus vite, donc la zone "sombre" visible ne couvre que le top ~30% du header — une ombre subtile plutot qu'une bande epaisse.
+- **Breadcrumb mobile restaure, positionne pour eviter l'overlap logo** — v1.2.27 cachait le breadcrumb sur mobile quand le logo etait visible (pour eviter l'overlap visuel signale en v1.2.24-26). Maintenant le breadcrumb est de retour, affiche a taille moderee (1.5em, weight 400, blanc, centre) avec `margin-top: 18vh` pour le pousser sous le `.detailLogo` en `position: absolute` (qui s'etend grosso modo de 45vh a 62vh sur mobile). Pas de souligne permanent, cible tap propre. Les utilisateurs mobile peuvent maintenant taper le nom de la serie pour revenir en arriere, sans l'overlap logo/texte des iterations precedentes.
 
 ---
 

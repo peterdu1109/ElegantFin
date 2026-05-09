@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.27 */
+/* ElegantFin Cinema Edition v1.2.28 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.27";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.28";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1566,14 +1566,34 @@ body {
     text-underline-offset: 0.2em;
 }
 
-/* v1.2.27: hide parentName breadcrumb on mobile when logo is present.
-   On the narrow mobile viewport, the absolutely-positioned .detailLogo
-   visually overlapped with the in-flow parentName text (e.g. "Moi quand
-   je me réincarne en Slime" passing through the dragon logo). Mobile
-   users navigate back via the header arrow ← which is the natural
-   mobile UX pattern — no need for a redundant breadcrumb. */
+/* v1.2.28: keep parentName breadcrumb visible on mobile (was hidden in v1.2.27)
+   but push it down with margin-top so it appears AFTER the logo's vertical
+   position, avoiding the overlap that v1.2.24-26 caused. The .detailLogo
+   on mobile is `position: absolute; top: 45vh; max-height: 17vh` so it
+   ends around 62vh. margin-top: 18vh nudges the breadcrumb past it.
+   Font size is moderate (1.5em) for mobile viewport, no permanent
+   underline, just a clean tappable link. */
 .layout-mobile .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName {
-    display: none !important;
+    display: block !important;
+    font-size: 1.5em !important;
+    font-weight: 400 !important;
+    letter-spacing: normal !important;
+    color: #fff !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+    padding: 0.25em 1em !important;
+    text-align: center;
+    margin-top: 18vh !important;
+    position: relative;
+    z-index: 5;
+}
+
+.layout-mobile .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+.layout-mobile .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName a:active {
+    opacity: 0.7;
 }
 
 /* v1.2.27: constrain detail page containers to viewport width on mobile.
@@ -4390,20 +4410,18 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     border: none;
 }
 
-/* v1.2.27: TV header gradient — Tizen via Jellyfin2Samsung doesn't always
-   apply .skinHeader-withBackground.semiTransparent class on detail pages,
-   leaving the bar fully transparent and the icons floating with no contrast
-   on bright backdrops. Force a slightly stronger gradient on TV regardless
-   of which skinHeader class combination Jellyfin TV applies. 0.85 at top
-   (vs 0.75 on desktop) compensates for couch viewing distance. */
-.layout-tv .skinHeader,
-.layout-tv .skinHeader-withBackground,
-.layout-tv .skinHeader-withBackground.semiTransparent {
+/* v1.2.28: TV header gradient — broader selector + softer fade.
+   v1.2.27 only worked on series page (not on saison/episode pages where
+   the .skinHeader-withBackground class isn't applied by Tizen). Now uses
+   :not(.osdHeader) to cover all detail page contexts on TV. The gradient
+   is also softer (0.7 → 0.3 → transparent at 80%) so the bar feels like
+   a thin top shadow rather than a thick dark band. */
+.layout-tv .skinHeader:not(.osdHeader) {
     background: linear-gradient(
         to bottom,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(0, 0, 0, 0.15) 100%
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 0.3) 40%,
+        transparent 80%
     ) !important;
     border: none;
 }

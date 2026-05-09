@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.30
+# ElegantFin Cinema Edition v1.2.31
 
 ## [English](#english) | [Francais](#francais)
 
@@ -312,6 +312,13 @@ Quick iteration based on user testing of v1.2.28:
 
 - **`.mediaInfoOfficialRating` (FR-XX age rating chip) unified with other chips** — The original styling used `transform: translateY(-0.15em)` plus `background: transparent`, which made the FR-12 / FR-10 badge appear visually raised compared to year, star rating, and percentage chips. On TV the offset could even cause the chip to be clipped at the top edge. Now matches `.mediaInfoItem:not(.endsAt)` styling: same background (`rgba(255,255,255,0.05)`), same border (`1px rgba(255,255,255,0.15)`), same border-radius, padding, font-size, font-weight, letter-spacing. Transform removed. All chips now sit at the same height with consistent appearance.
 - **Mobile breadcrumb margin-top reduced from 5vh to 2vh** — 5vh still left a visible empty gap between the logo and the breadcrumb. 2vh is the minimum that still avoids overlap with the logo's bottom edge.
+
+---
+
+#### v1.2.31 — Full chip alignment (year / FR-XX / ★ rating / 100%)
+
+- **All `.mediaInfoItem` chips now share strict identical dimensions** — v1.2.30 only fixed the FR-XX badge alignment (removed translateY) but the chips still had different visual heights because their content (text vs text+icon) drove their natural rendering size. v1.2.31 enforces `height: 1.8em; min-height: 1.8em; padding: 0 0.6em; line-height: 1; display: inline-flex; align-items: center` on **every** chip variant — year, FR-XX, star rating, percentage. Same background, same border, same border-radius. Inline icons inside (`.material-icons`, `.starIcon`, `svg`) clamped to `font-size: 0.9em` so they don't push chip heights apart.
+- **`.itemMiscInfo-primary` container**: now `display: flex; flex-wrap: wrap; align-items: center; justify-content: center; column-gap: 0.5em; row-gap: 0.5em` — chips wrap to a second line on very narrow viewports instead of overflowing/clipping (safety net only — typically stays on one line).
 
 ---
 
@@ -630,6 +637,13 @@ Iteration rapide suite au test utilisateur de v1.2.28 :
 
 - **`.mediaInfoOfficialRating` (chip FR-XX age rating) unifie avec les autres chips** — Le style original utilisait `transform: translateY(-0.15em)` + `background: transparent`, ce qui faisait paraitre le badge FR-12 / FR-10 visuellement remonte par rapport aux chips annee, etoile rating, et pourcentage. Sur TV l'offset pouvait meme causer le clipping de la chip en haut. Maintenant matche le style de `.mediaInfoItem:not(.endsAt)` : meme background (`rgba(255,255,255,0.05)`), meme border (`1px rgba(255,255,255,0.15)`), meme border-radius, padding, font-size, font-weight, letter-spacing. Transform supprime. Toutes les chips ont maintenant la meme hauteur avec apparence coherente.
 - **Marge mobile breadcrumb reduite de 5vh a 2vh** — 5vh laissait encore un vide visible entre le logo et le breadcrumb. 2vh est le minimum qui evite encore l'overlap avec le bord bas du logo.
+
+---
+
+#### v1.2.31 — Alignement complet des chips (annee / FR-XX / ★ rating / 100%)
+
+- **Tous les chips `.mediaInfoItem` ont maintenant des dimensions strictement identiques** — v1.2.30 ne corrigeait que l'alignement du badge FR-XX (retrait du translateY) mais les chips avaient encore des hauteurs visuelles differentes parce que leur contenu (texte vs texte+icone) determinait leur taille de rendu naturelle. v1.2.31 force `height: 1.8em; min-height: 1.8em; padding: 0 0.6em; line-height: 1; display: inline-flex; align-items: center` sur **chaque** variante de chip — annee, FR-XX, star rating, pourcentage. Meme background, meme border, meme border-radius. Les icones inline (`.material-icons`, `.starIcon`, `svg`) bornees a `font-size: 0.9em` pour ne pas pousser les hauteurs des chips.
+- **Conteneur `.itemMiscInfo-primary`** : maintenant `display: flex; flex-wrap: wrap; align-items: center; justify-content: center; column-gap: 0.5em; row-gap: 0.5em` — les chips wrappent sur une seconde ligne sur viewports tres etroits au lieu de deborder/clipper (filet de securite uniquement — reste typiquement sur une ligne).
 
 ---
 

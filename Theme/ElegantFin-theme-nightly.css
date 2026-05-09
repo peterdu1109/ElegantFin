@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.30 */
+/* ElegantFin Cinema Edition v1.2.31 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.30";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.31";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1278,28 +1278,51 @@ body {
     padding-bottom: 0;
 }
 
+/* v1.2.31: full chip alignment — uniform height, consistent style across
+   ALL .mediaInfoItem variants (year, FR-XX, ★ rating, 100%). Previously
+   each chip was rendered at its content's natural height which caused
+   visual inconsistency (icons made some chips taller than text-only ones).
+   Now all chips share the same fixed dimensions and inline-flex centering. */
 .itemMiscInfo-primary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     column-gap: 0.5em;
+    row-gap: 0.5em;
 }
 
-/* v1.2.30: unify .mediaInfoOfficialRating (FR-XX age rating) with the
-   other chips style so it sits at the same height with consistent
-   appearance. The previous transform: translateY(-0.15em) caused the
-   FR-XX badge to be visually raised compared to the year, star, and
-   percentage chips — and on TV it could even be clipped at the top.
-   Now matches .mediaInfoItem:not(.endsAt) styling. */
+.mediaInfoItem:not(.endsAt),
 .mediaInfoOfficialRating {
     background: rgba(255, 255, 255, 0.05) !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 0.3em !important;
-    padding: 0.15em 0.5em !important;
+    padding: 0 0.6em !important;
     font-size: 0.75em !important;
     font-weight: 600 !important;
     letter-spacing: 0.04em !important;
-    font-family: inherit;
-    line-height: inherit;
+    line-height: 1 !important;
+    height: 1.8em !important;
+    min-height: 1.8em !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.25em !important;
     transform: none !important;
     color: var(--textColor) !important;
+    font-family: inherit;
+}
+
+/* Force inline icons (star, check, etc.) to match chip text size */
+.mediaInfoItem .material-icons,
+.mediaInfoItem .starIcon,
+.mediaInfoItem svg {
+    font-size: 0.9em !important;
+    width: auto !important;
+    height: auto !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    transform: none !important;
 }
 
 .starIcon {

@@ -1,11 +1,11 @@
-/* ElegantFin Cinema Edition v1.2.26 */
+/* ElegantFin Cinema Edition v1.2.27 */
 /* Enhanced with 27 cinematic modules — Netflix-inspired streaming experience */
 
 /* Inter Font Family */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.26";
+    --elegantFinFooterText: "ElegantFin Cinema Edition v1.2.27";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -1564,6 +1564,45 @@ body {
     text-decoration-color: rgba(255, 255, 255, 0.6);
     text-decoration-thickness: 1.5px;
     text-underline-offset: 0.2em;
+}
+
+/* v1.2.27: hide parentName breadcrumb on mobile when logo is present.
+   On the narrow mobile viewport, the absolutely-positioned .detailLogo
+   visually overlapped with the in-flow parentName text (e.g. "Moi quand
+   je me réincarne en Slime" passing through the dragon logo). Mobile
+   users navigate back via the header arrow ← which is the natural
+   mobile UX pattern — no need for a redundant breadcrumb. */
+.layout-mobile .detailLogo:not(.hide) ~ .detailPageWrapperContainer .nameContainer h1.parentName {
+    display: none !important;
+}
+
+/* v1.2.27: constrain detail page containers to viewport width on mobile.
+   In-progress episodes use a backdropCard (wide thumbnail) instead of
+   portraitCard, which combined with the grid auto-sizing on .infoWrapper
+   could push content past the viewport edge. Force everything to respect
+   100vw and word-break long titles cleanly. */
+.layout-mobile .infoWrapper,
+.layout-mobile .detailPagePrimaryContent,
+.layout-mobile .detailPagePrimaryContainer {
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.layout-mobile .nameContainer,
+.layout-mobile .nameContainer > h1,
+.layout-mobile .nameContainer > h3 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.layout-mobile .detailImageContainer {
+    max-width: 100vw;
+}
+
+.layout-mobile .detailImageContainer .card {
+    max-width: 60vw !important;
 }
 
 /* this shows the main media title and the poster when the clear logo is unavailable*/
@@ -3714,8 +3753,10 @@ div[data-role="controlgroup"] a.ui-btn-active {
 
 .layout-mobile .nameContainer > h1.itemName bdi,
 .layout-mobile .nameContainer > h1.parentName bdi {
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 4;       /* v1.2.27: was 3, bumped for long anime titles */
+    line-clamp: 4;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 .layout-tv .nameContainer > h1.itemName bdi,
@@ -4346,6 +4387,24 @@ ul.MuiList-root.MuiMenu-list.MuiList-dense > div:first-child {
     --headerBackground: none;
     backdrop-filter: none;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+    border: none;
+}
+
+/* v1.2.27: TV header gradient — Tizen via Jellyfin2Samsung doesn't always
+   apply .skinHeader-withBackground.semiTransparent class on detail pages,
+   leaving the bar fully transparent and the icons floating with no contrast
+   on bright backdrops. Force a slightly stronger gradient on TV regardless
+   of which skinHeader class combination Jellyfin TV applies. 0.85 at top
+   (vs 0.75 on desktop) compensates for couch viewing distance. */
+.layout-tv .skinHeader,
+.layout-tv .skinHeader-withBackground,
+.layout-tv .skinHeader-withBackground.semiTransparent {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0.5) 60%,
+        rgba(0, 0, 0, 0.15) 100%
+    ) !important;
     border: none;
 }
 

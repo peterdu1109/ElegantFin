@@ -1,4 +1,4 @@
-# ElegantFin Cinema Edition v1.2.26
+# ElegantFin Cinema Edition v1.2.27
 
 ## [English](#english) | [Francais](#francais)
 
@@ -273,6 +273,17 @@ This release transforms the ElegantFin theme into a professional, Netflix-inspir
 #### v1.2.26 — Parent breadcrumb final design (clean, no permanent underline)
 
 - **Final breadcrumb style: matches the visible "Saison X" / "Episode Y" rendering** — Iterating on user feedback after v1.2.25 ("the underline is ugly, I want the same look as Saison 3, properly bold, neither too big nor too small"). Now `h1.parentName` is styled to match the visible season/episode title: **font-size 2em**, **font-weight 400 (normal, not the inherited thin 100)**, **letter-spacing normal** (overrides theme's -0.02em), **white**, **centered**, with a soft text-shadow for legibility. **No permanent underline** — the link is clean by default. Click affordance comes from a subtle underline that **appears only on `:hover`** (1.5px, 60% white opacity, 0.2em offset). Mobile users discover by tapping; desktop users see the underline reveal on mouseover. Final result is consistent with the cinema/elegant aesthetic of the theme.
+
+---
+
+#### v1.2.27 — Mobile detail page fixes + TV header gradient force
+
+Bundle of 4 fixes addressing real user-reported issues across all platforms:
+
+- **Mobile: parentName breadcrumb hidden when logo present** — On the narrow mobile viewport, the absolutely-positioned `.detailLogo` visually overlapped with the in-flow `h1.parentName` text (e.g. "Moi quand je me réincarne en Slime" rendering through the dragon logo on the Saison 4 page). Mobile users navigate back via the header arrow ← which is the natural mobile UX pattern — the redundant breadcrumb removed.
+- **Mobile: detail page containers constrained to viewport width** — In-progress episodes use a `backdropCard` (wide thumbnail) instead of `portraitCard`, which combined with the grid auto-sizing on `.infoWrapper` could push content past the screen edge (text and image overflow on the right). Forced `max-width: 100vw; overflow-x: hidden; box-sizing: border-box` on `.infoWrapper`, `.detailPagePrimaryContent`, `.detailPagePrimaryContainer`, `.detailImageContainer`. Plus `overflow-wrap: anywhere; word-break: break-word` on `.nameContainer` h1/h3 so long titles wrap cleanly. Card max-width capped at 60vw.
+- **Mobile: line-clamp 4 for long episode titles** — Was 3 lines, now 4. Long anime episode titles ("Saison 3 - 10. La première cause de conclusions absurdes, je l'attribue au manque de méthode") were getting cut. Added `max-width: 100%; overflow-wrap: anywhere` to the `bdi` rule too.
+- **TV: forced header gradient regardless of class combination** — The v1.2.17 gradient relied on `.skinHeader-withBackground.semiTransparent` class which Tizen via Jellyfin2Samsung doesn't always apply on detail pages, leaving the bar fully transparent (icons floating on bright backdrops). Now forces the gradient on `.layout-tv .skinHeader`, `.layout-tv .skinHeader-withBackground`, `.layout-tv .skinHeader-withBackground.semiTransparent`. Slightly stronger top opacity (0.85 vs desktop's 0.75) to compensate for couch viewing distance.
 
 ---
 
@@ -552,6 +563,17 @@ Cette version transforme le theme ElegantFin en une experience de streaming prof
 #### v1.2.26 — Design final du breadcrumb parent (propre, sans soulignement permanent)
 
 - **Style final du breadcrumb : matche le rendu visible "Saison X" / "Episode Y"** — Iteration suite au retour utilisateur apres v1.2.25 ("le souligne est moche, je veux le meme look que Saison 3, en gras correctement, ni trop grand ni trop petit"). Maintenant `h1.parentName` est style pour matcher le titre saison/episode visible : **font-size 2em**, **font-weight 400 (normal, pas le thin 100 herite)**, **letter-spacing normal** (override le -0.02em du theme), **blanc**, **centre**, avec un text-shadow doux pour la lisibilite. **Pas de souligne permanent** — le lien est propre par defaut. L'indicateur de clic vient d'un souligne subtil qui **apparait uniquement au `:hover`** (1.5px, blanc 60%, offset 0.2em). Sur mobile, decouvert au tap ; sur desktop, le souligne revele au survol souris. Le rendu final est coherent avec l'esthetique cinema/elegante du theme.
+
+---
+
+#### v1.2.27 — Fixes pages detail mobile + force du gradient header TV
+
+Bundle de 4 fixes adressant des problemes utilisateurs reels sur toutes les plateformes :
+
+- **Mobile : breadcrumb parentName cache quand logo present** — Sur le viewport mobile etroit, le `.detailLogo` en `position: absolute` chevauchait visuellement le texte `h1.parentName` du flow (ex. "Moi, quand je me reincarne en Slime" passant a travers le logo dragon sur la page Saison 4). Sur mobile, l'utilisateur navigue en arriere via la fleche `←` du header — pattern UX mobile naturel. Breadcrumb redondant supprime.
+- **Mobile : conteneurs detail page contraints au viewport** — Les episodes en cours utilisent un `backdropCard` (vignette large) au lieu de `portraitCard`, ce qui combine avec l'auto-sizing grid de `.infoWrapper` pouvait pousser le contenu hors de l'ecran (texte et image qui depassent a droite). Force `max-width: 100vw; overflow-x: hidden; box-sizing: border-box` sur `.infoWrapper`, `.detailPagePrimaryContent`, `.detailPagePrimaryContainer`, `.detailImageContainer`. Plus `overflow-wrap: anywhere; word-break: break-word` sur les h1/h3 de `.nameContainer` pour que les longs titres wrap proprement. `max-width: 60vw` cape sur la card.
+- **Mobile : line-clamp 4 pour longs titres episodes** — Etait 3 lignes, passe a 4. Les longs titres anime ("Saison 3 - 10. La premiere cause de conclusions absurdes, je l'attribue au manque de methode") etaient coupes. Ajout de `max-width: 100%; overflow-wrap: anywhere` sur le bdi aussi.
+- **TV : gradient header force quel que soit la combinaison de classes** — Le gradient v1.2.17 reposait sur la classe `.skinHeader-withBackground.semiTransparent` que Tizen via Jellyfin2Samsung n'applique pas toujours sur les pages detail, laissant la barre totalement transparente (icones flottantes sur backdrops clairs). Force maintenant le gradient sur `.layout-tv .skinHeader`, `.layout-tv .skinHeader-withBackground`, `.layout-tv .skinHeader-withBackground.semiTransparent`. Opacite top legerement renforcee (0.85 vs 0.75 desktop) pour compenser la distance de visionnage canape.
 
 ---
 
